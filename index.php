@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 	<title>Login</title>
@@ -30,6 +30,18 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/img-01.jpg');">
 			<div class="wrap-login100 p-t-15 p-b-30">
+
+			<div class="wrap-input100 p-b-10">
+				<?php if (isset($_GET['Wrong'])) : ?>
+					<div class="alert alert-secondary text-center text-danger" role="alert">
+						<span>
+							<i class="fa fa-bug"></i>
+						</span>
+						<strong>Wrong:</strong> Incorrect username or password.
+					</div>
+				<?php endif; ?>
+			</div>
+
 				<form class="login100-form validate-form">
 					<div class="login100-form-avatar">
 						<img src="images/avatar-01.jpg" alt="AVATAR">
@@ -65,9 +77,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
 
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
