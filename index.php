@@ -31,9 +31,9 @@
 		<div class="container-login100" style="background-image: url('images/img-01.jpg');">
 			<div class="wrap-login100 p-t-15 p-b-30">
 
-			<div class="wrap-input100 p-b-10">
+			<div class="wrap-input100 p-b-20">
 				<?php if (isset($_GET['Wrong'])) : ?>
-					<div class="alert alert-secondary text-center text-danger" role="alert">
+					<div class="text-center text-danger">
 						<span>
 							<i class="fa fa-bug"></i>
 						</span>
