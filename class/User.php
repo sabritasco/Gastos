@@ -7,22 +7,27 @@ class class_User
         $this->_con = $db->con;
     }
 
+    /**
+	 * Este metodo para iniciar sesión
+	 * @param array $data
+	 * @return retorna falso o verdadero
+	 */
     public function login(array $data)
     {
         if (!empty($data)) {
 
-            // Trim todos los datos entrantes:
+            // Trim a todos los datos entrantes:
             $trimmed_data = array_map('trim', $data);
 
             // escapar de las variables para la seguridad
-            $usuario = mysqli_real_escape_string($this->_con,  $trimmed_data['usuario']);
+            $user = mysqli_real_escape_string($this->_con,  $trimmed_data['user']);
             $pass = mysqli_real_escape_string($this->_con,  $trimmed_data['pass']);
 
-            if ((!$usuario) || (!$pass)) {
+            if ((!$user) || (!$pass)) {
                 throw new Exception(LOGIN_FIELDS_MISSING);
             }
             $pass = md5($pass);
-            $query = "SELECT USUARIO_ID, NOMBRE, CORREO, FOTO, CREADO FROM USUARIOS WHERE USUARIO = '$usuario' and PASSWORD = '$pass' ";
+            $query = "SELECT USUARIO_ID, NOMBRE, CORREO, FOTO, CREADO FROM USUARIOS WHERE USUARIO = '$user' and PASSWORD = '$pass' ";
             $result = mysqli_query($this->_con, $query);
             $data = mysqli_fetch_assoc($result);
             $count = mysqli_num_rows($result);

@@ -75,7 +75,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
-						<input class="input100" type="text" name="usuario" placeholder="Username" autocomplete="off">
+						<input class="input100" type="text" name="user" placeholder="Username" autocomplete="off">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user"></i>

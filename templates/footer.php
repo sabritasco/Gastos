@@ -1,7 +1,7 @@
 <div class="clearfix"></div>
 
 <!-- Footer -->
-<footer class="py-4 bg-light mt-auto">
+<footer class="py-4 bg-gray-900">
   <div class="container-fluid">
     <div class="d-flex align-items-center justify-content-between small">
       <div class="text-muted">Copyright © Gastos 2020</div>
