@@ -43,7 +43,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<!--===============================================================================================-->
@@ -61,9 +61,12 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 		<div class="container-login100" style="background-image: url('images/img-01.jpg');">
 			<div class="wrap-login100 p-t-15 p-b-30">
 
-				<div class="message_div wrap-input100 p-b-20">
-					<?php require_once 'templates/mensajes.php'; ?>
-				</div>
+				<?php if (!empty($error)) { ?>
+					<div class="message_div wrap-input100 p-b-20">
+						<?php require_once 'templates/mensajes.php'; ?>
+					</div>
+				<?php } ?>
+
 
 				<form class="login100-form validate-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 					<div class="login100-form-avatar">

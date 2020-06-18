@@ -10,73 +10,74 @@
 			<div id="content">
 				<?php require_once 'templates/nav.php'; ?>
 				<!-- Begin Page Content -->
-				<div class="container-fluid min-vh-100">
+				<div class="container-fluid">
+
+				<?php if (!empty($error)) { ?>
+					<div class="message_div wrap-input100 p-b-20">
+						<?php require_once 'templates/mensajes.php'; ?>
+					</div>
+				<?php } ?>
+
+
 					<!-- Content Row -->
-					<div class="row">
+					<div class="row justify-content-center">
 
 
 
+						<!-- form user info -->
+						<div class="card card-outline-secondary border-left-primary border-bottom-primary m-b-30 p-2 w-100">
+							<div class="card-header">
+								<h3 class="mb-0">Debtors Information</h3>
+							</div>
+							<div class="card-body">
+								<form class="form" role="form" autocomplete="off">
+									<div class="form-group row">
+										<label class="col-lg-3 col-form-label form-control-label">First name</label>
+										<div class="col-lg-9">
+											<input class="form-control" type="text" value="Jane">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-lg-3 col-form-label form-control-label">Last name</label>
+										<div class="col-lg-9">
+											<input class="form-control" type="text" value="Bishop">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-lg-3 col-form-label form-control-label">Email</label>
+										<div class="col-lg-9">
+											<input class="form-control" type="email" value="email@gmail.com">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-lg-3 col-form-label form-control-label">Company</label>
+										<div class="col-lg-9">
+											<input class="form-control" type="text" value="">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-lg-3 col-form-label form-control-label">Website</label>
+										<div class="col-lg-9">
+											<input class="form-control" type="url" value="">
+										</div>
+									</div>
 
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-calendar fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-calendar fa-2x text-gray-300"></i>
+
+									
+									
+									
+									
+									<div class="form-group row">
+										<label class="col-lg-3 col-form-label form-control-label"></label>
+										<div class="col-lg-9">
+											<input type="reset" class="btn btn-secondary" value="Cancel">
+											<input type="button" class="btn btn-primary" value="Save Changes">
 										</div>
 									</div>
-								</div>
+								</form>
 							</div>
 						</div>
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-calendar fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-calendar fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+						<!-- /form user info -->
 
 
 
