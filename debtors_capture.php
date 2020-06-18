@@ -12,11 +12,24 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
-				<?php if (!empty($error)) { ?>
-					<div class="message_div wrap-input100 p-b-20">
-						<?php require_once 'templates/mensajes.php'; ?>
-					</div>
-				<?php } ?>
+
+
+					<?php /*if (!empty($_POST)) {
+						try {
+							$user_obj = new class_User();
+							$data = $user_obj->login($_POST);
+							if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+								header('Location: home.php');
+							}
+						} catch (Exception $e) {
+							$error = $e->getMessage();
+						}
+					}*/
+					if (!empty($error)) : ?>
+						<div class="message_div wrap-input100 p-b-20">
+							<?php require_once 'templates/mensajes.php'; ?>
+						</div>
+					<?php endif ?>
 
 
 					<!-- Content Row -->
@@ -34,44 +47,32 @@
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label form-control-label">First name</label>
 										<div class="col-lg-9">
-											<input class="form-control" type="text" value="Jane">
+											<input class="form-control" type="text" name="name">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label form-control-label">Last name</label>
 										<div class="col-lg-9">
-											<input class="form-control" type="text" value="Bishop">
+											<input class="form-control" type="text" name="last_name">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label form-control-label">Email</label>
 										<div class="col-lg-9">
-											<input class="form-control" type="email" value="email@gmail.com">
+											<input class="form-control" type="email" name="email">
 										</div>
 									</div>
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label">Company</label>
+										<label class="col-lg-3 col-form-label form-control-label">Mobile</label>
 										<div class="col-lg-9">
-											<input class="form-control" type="text" value="">
+											<input class="form-control" type="text" name="mobile">
 										</div>
 									</div>
-									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label">Website</label>
-										<div class="col-lg-9">
-											<input class="form-control" type="url" value="">
-										</div>
-									</div>
-
-
-									
-									
-									
-									
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label form-control-label"></label>
 										<div class="col-lg-9">
-											<input type="reset" class="btn btn-secondary" value="Cancel">
-											<input type="button" class="btn btn-primary" value="Save Changes">
+											<input type="reset" class="btn btn-secondary btn-lg" value="Cancel">
+											<input type="button" class="btn btn-primary btn-lg" value="Save">
 										</div>
 									</div>
 								</form>
@@ -89,9 +90,9 @@
 					<!-- End Content Row -->
 				</div>
 				<!-- /.container-fluid -->
-				<?php require_once 'templates/footer.php'; ?>
 			</div>
 			<!-- End of Main Content -->
+			<?php require_once 'templates/footer.php'; ?>
 		</div>
 		<!-- End of Content Wrapper -->
 	</div>

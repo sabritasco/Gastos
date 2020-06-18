@@ -12,11 +12,11 @@
 	<!-- Divider -->
 	<hr class="sidebar-divider my-0">
 	<!-- Nav Item - Dashboard -->
-	<?php if ($filename == "home") { ?>
+	<?php if ($filename == "home") : ?>
 		<li class="nav-item active">
-		<?php } else { ?>
+	<?php else: ?>
 		<li class="nav-item">
-		<?php } ?>
+		<?php endif ?>
 		<a class="nav-link" href="home.php">
 			<i class="fas fa-fw fa-tachometer-alt"></i>
 			<span>Dashboard</span></a>
@@ -32,7 +32,7 @@
 
 
 		<!-- Debtors -->
-		<?php if (strpos($filename, 'debtors') !== false) { ?>
+		<?php if (strpos($filename, 'debtors') !== false) : ?>
 			<li class="nav-item active">
 				<a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 					<i class="fas fa-hand-holding-usd"></i>
@@ -41,7 +41,7 @@
 				<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Options:</h6>
-					<?php } else { ?>
+		<?php else: ?>
 			<li class="nav-item">
 				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 					<i class="fas fa-hand-holding-usd"></i>
@@ -50,12 +50,12 @@
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Options:</h6>
-					<?php } ?>
-					<?php if ($filename == "debtors_capture") { ?>
+		<?php endif; ?>
+					<?php if ($filename == "debtors_capture") : ?>
 						<a class="collapse-item active" href="debtors_capture.php">Capture</a>
-					<?php } else { ?>
+					<?php else: ?>
 						<a class="collapse-item" href="debtors_capture.php">Capture</a>
-					<?php } ?>
+					<?php endif; ?>
 					<a class="collapse-item" href="cards.html">Cards</a>
 					</div>
 				</div>

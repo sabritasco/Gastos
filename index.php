@@ -2,8 +2,6 @@
 ob_start();
 session_start();
 require_once 'class/ParametersDB.php';
-?>
-<?php
 if (!empty($_POST)) {
 	try {
 		$user_obj = new class_User();
@@ -17,6 +15,9 @@ if (!empty($_POST)) {
 }
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 	header('Location: home.php');
+}
+if(isset($_GET['success']) && $_GET['success'] == 'logout'){
+	 $success = LOGIN_CLOSE; 
 }
 ?>
 <!DOCTYPE html>
@@ -61,11 +62,11 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 		<div class="container-login100" style="background-image: url('images/img-01.jpg');">
 			<div class="wrap-login100 p-t-15 p-b-30">
 
-				<?php if (!empty($error)) { ?>
+				<?php if (!empty($success) || !empty($error)) : ?>
 					<div class="message_div wrap-input100 p-b-20">
 						<?php require_once 'templates/mensajes.php'; ?>
 					</div>
-				<?php } ?>
+				<?php endif; ?>
 
 
 				<form class="login100-form validate-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
