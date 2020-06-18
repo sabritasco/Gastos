@@ -16,7 +16,7 @@ if (strpos($filename, 'debtors') !== false) {
 
 <!-- /Head -->
 <head>
-  <title><?php echo $title ?></title>
+  <title><?= $title ?></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--===============================================================================================-->
