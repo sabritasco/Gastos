@@ -51,3 +51,4 @@ class class_User
 		header('Location: index.php?success=logout');
 	}
 }
+?>

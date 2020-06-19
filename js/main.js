@@ -3,7 +3,7 @@
 
   // Toggle the side navigation
   $("#sidebarToggle, #sidebarToggleTop").on("click", function (e) {
-    $("body").toggleClass("sidebar-toggled");
+    $("body").toggleClass("sidebar-toggled"); 
     $(".sidebar").toggleClass("toggled");
     if ($(".sidebar").hasClass("toggled")) {
       $(".sidebar .collapse").collapse("hide");
@@ -15,7 +15,6 @@
     if ($(window).width() < 768) {
       $(".sidebar .collapse").collapse("hide");
     }
-
     // Toggle the side navigation when window is resized below 480px
     if ($(window).width() < 480 && !$(".sidebar").hasClass("toggled")) {
       $("body").addClass("sidebar-toggled");
@@ -51,8 +50,7 @@
     var $anchor = $(this);
     $("html, body")
       .stop()
-      .animate(
-        {
+      .animate({
           scrollTop: $($anchor.attr("href")).offset().top,
         },
         1000,
@@ -60,4 +58,31 @@
       );
     e.preventDefault();
   });
+
+  // Add active state 
+  var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+  if ($(window).width() > 480) {
+    $("#accordionSidebar a").each(function () {
+      if (this.href === path) {
+        $(this).closest(".nav-item").addClass("active");
+        $(this).closest(".collapse-item").addClass("active");
+        $(this).closest("a.nav-link").removeClass("collapsed");
+        $(this).closest("a.nav-link").attr("aria-expanded", "true");
+        $(this).closest(".collapse").addClass("show");
+      }
+    });
+  } else {
+    $("#accordionSidebar a").each(function () {
+      if (this.href === path) {
+        $(this).closest(".nav-item").addClass("active");
+        $(this).closest(".collapse-item").addClass("active");
+      }
+    });
+  }
+
+  
+
+
+
+
 })(jQuery); // End of use strict
