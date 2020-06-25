@@ -34,7 +34,7 @@
 					<div class="row justify-content-center">
 
 						<!-- form user info -->
-						<div class="card card-outline-secondary border-left-primary border-bottom-primary m-b-30 p-2 w-100">
+						<div class="card card-outline-secondary border-left-primary border-bottom-primary m-b-30 p-2 col-lg-12">
 							<div class="card-header">
 								<h3 class="mb-0">Debtors Information</h3>
 							</div>
@@ -46,7 +46,7 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label">First name</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-sm-0">First name</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="First name is required">
 												<input class="form-control input" type="text" name="name">
@@ -58,7 +58,7 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label">Last name</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-sm-0">Last name</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="Last name is required">
 												<input class="form-control input" type="text" name="last_name">
@@ -71,7 +71,7 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label">Email</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-sm-0">Email</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="Email is required">
 												<input class="form-control input" type="text" name="email">
@@ -83,7 +83,7 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label">Mobile</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-sm-0">Mobile</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="Mobile is required">
 												<input class="form-control input" type="text" name="mobile">
