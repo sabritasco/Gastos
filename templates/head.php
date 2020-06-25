@@ -30,7 +30,7 @@ if (strpos($filename, 'debtors') !== false) {
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
 	<!--===============================================================================================-->
@@ -46,7 +46,7 @@ if (strpos($filename, 'debtors') !== false) {
 	<!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="vendor/jquery-easing/jquery.easing.js"></script>
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	<!--===============================================================================================-->
 </head>
 <!-- /Head -->

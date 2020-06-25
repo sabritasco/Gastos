@@ -3,7 +3,7 @@
 
   // Toggle the side navigation
   $("#sidebarToggle, #sidebarToggleTop").on("click", function (e) {
-    $("body").toggleClass("sidebar-toggled"); 
+    $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
     if ($(".sidebar").hasClass("toggled")) {
       $(".sidebar .collapse").collapse("hide");
@@ -61,7 +61,7 @@
 
   // Add active state 
   var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
-  if ($(window).width() > 480) {
+  if ($(window).width() > 768) {
     $("#accordionSidebar a").each(function () {
       if (this.href === path) {
         $(this).closest(".nav-item").addClass("active");
@@ -80,7 +80,7 @@
     });
   }
 
-  
+
 
 
 
