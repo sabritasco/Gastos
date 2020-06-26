@@ -19,7 +19,7 @@
 <?php if (!empty($success) || !empty($error)) : ?>
 	<script>
 		$(document).ready(function() {
-			$('.message_div').delay(5000).slideUp();
+			$('.message_div').delay(7500).slideUp();
 		});
 	</script>
 <?php endif ?>

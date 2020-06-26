@@ -12,11 +12,11 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
-				<?php if (!empty($error)) { ?>
+				<?php if (!empty($success) || !empty($error)) : ?>
 					<div class="message_div wrap-input100 p-b-20">
 						<?php require_once 'templates/mensajes.php'; ?>
 					</div>
-				<?php } ?>
+				<?php endif ?>
 
 
 

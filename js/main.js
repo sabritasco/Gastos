@@ -66,9 +66,8 @@
       if (this.href === path) {
         $(this).closest(".nav-item").addClass("active");
         $(this).closest(".collapse-item").addClass("active");
-        $(this).closest("a.nav-link").removeClass("collapsed");
-        $(this).closest("a.nav-link").attr("aria-expanded", "true");
         $(this).closest(".collapse").addClass("show");
+        $(this).closest("li").find("a.nav-link").removeClass("collapsed");
       }
     });
   } else {

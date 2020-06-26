@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul id="accordionSidebar" class="sb-sidenav navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
+<ul id="accordionSidebar" class="sb-sidenav navbar-nav bg-gray-900 sidebar sidebar-dark accordion">
 
 	<!-- Sidebar - Brand -->
 	<span class="sidebar-brand d-flex align-items-center justify-content-center">
@@ -27,22 +27,22 @@
 	<hr class="sidebar-divider">
 
 	<!-- Heading -->
-	<div class="sidebar-heading">
-		Interface
+	<div class="sidebar-heading text-warning">
+		Admon
 	</div>
 
 
 	<!-- Debtors -->
 	<li class="nav-item">
-		<a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-			<i class="fas fa-hand-holding-usd"></i>
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			<i class="far fa-hand-holding-usd"></i>
 			<span>Debtors</span>
 		</a>
-		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+		<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Options:</h6>
 				<a class="collapse-item" href="debtors_capture.php">Capture</a>
-				<a class="collapse-item" href="cards.html">Cards</a>
+				<a class="collapse-item" href="#">List</a>
 			</div>
 		</div>
 	</li>
@@ -50,22 +50,22 @@
 
 
 
-	<!-- Nav Item - Utilities Collapse Menu -->
+	<!-- Cards -->
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-			<i class="fas fa-fw fa-wrench"></i>
-			<span>Utilities</span>
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+			<i class="fas fa-credit-card"></i>
+			<span>Cards</span>
 		</a>
-		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Custom Utilities:</h6>
-				<a class="collapse-item" href="utilities-color.html">Colors</a>
-				<a class="collapse-item" href="utilities-border.html">Borders</a>
-				<a class="collapse-item" href="utilities-animation.html">Animations</a>
-				<a class="collapse-item" href="utilities-other.html">Other</a>
+				<h6 class="collapse-header">Options:</h6>
+				<a class="collapse-item" href="cards_capture.php">Capture</a>
+				<a class="collapse-item" href="#">List</a>
 			</div>
 		</div>
 	</li>
+	<!-- End Cards -->
+
 
 	<!-- Divider -->
 	<hr class="sidebar-divider">

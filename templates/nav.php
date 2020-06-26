@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark bg-gray-900 topbar mb-4 static-top shadow">
+<nav class="navbar navbar-expand navbar-dark bg-gray-900 topbar mb-4 static-top shadow border-left">
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
     </button>

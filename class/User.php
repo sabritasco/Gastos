@@ -1,6 +1,14 @@
 <?php
 class class_User
 {
+    /**
+	 * @var va a contener la conexión de base de datos
+	 */
+    protected $_con;
+    
+    /**
+	 * Inializar DBclass
+	 */
     public function __construct()
     {
         $db = new class_ConnectDB();

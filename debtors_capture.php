@@ -12,18 +12,16 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
-					<?php /*if (!empty($_POST)) {
+					<?php if (!empty($_POST)) {
 						try {
-							$user_obj = new class_User();
-							$data = $user_obj->login($_POST);
-							if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-								header('Location: home.php');
-							}
+							$debtors_obj = new class_Debtors();
+							$data = $debtors_obj->insert($_POST);
+							if ($data)$success = DEBTORS_INSERT_SUCCESS;
 						} catch (Exception $e) {
 							$error = $e->getMessage();
 						}
-					}*/
-					if (!empty($error)) : ?>
+					}
+					if (!empty($success) || !empty($error)) : ?>
 						<div class="message_div wrap-input100 p-b-20">
 							<?php require_once 'templates/mensajes.php'; ?>
 						</div>
@@ -46,7 +44,7 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-sm-0">First name</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-lg-0">First name</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="First name is required">
 												<input class="form-control input" type="text" name="name">
@@ -58,7 +56,7 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-sm-0">Last name</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Last name</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="Last name is required">
 												<input class="form-control input" type="text" name="last_name">
@@ -71,10 +69,10 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-sm-0">Email</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Email</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="Email is required">
-												<input class="form-control input" type="text" name="email">
+												<input id="email" class="form-control input" type="text" name="email">
 												<span class="focus-input"></span>
 
 											</div>
@@ -83,10 +81,10 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-sm-0">Mobile</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Mobile</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="Mobile is required">
-												<input class="form-control input" type="text" name="mobile">
+												<input id="mobile" class="form-control input" type="text" name="mobile">
 												<span class="focus-input"></span>
 
 											</div>

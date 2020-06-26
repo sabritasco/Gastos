@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 18-06-2020 a las 15:02:56
+-- Tiempo de generación: 26-06-2020 a las 17:10:23
 -- Versión del servidor: 8.0.20-0ubuntu0.20.04.1
 -- Versión de PHP: 7.4.3
 
@@ -29,11 +29,39 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `DEUDORES` (
-  `ID` int NOT NULL,
+  `DEUDOR_ID` int NOT NULL,
   `ID_USUARIO` int NOT NULL,
   `NOMBRE` varchar(50) NOT NULL,
   `CORREO` varchar(60) NOT NULL,
-  `CELULAR` int NOT NULL
+  `CELULAR` varchar(15) NOT NULL,
+  `CREADO` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `DEUDORES`
+--
+
+INSERT INTO `DEUDORES` (`DEUDOR_ID`, `ID_USUARIO`, `NOMBRE`, `CORREO`, `CELULAR`, `CREADO`) VALUES
+(1, 1, 'González Díaz Emmanuel', 'cocacolapepsipopotecocacola@hotmail.com', '5527315705', '2020-06-26 13:59:21');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TARJETAS`
+--
+
+CREATE TABLE `TARJETAS` (
+  `TARJETA_ID` int NOT NULL,
+  `TERMINACION` int NOT NULL,
+  `IDENTIFICADOR` varchar(50) NOT NULL,
+  `ID_USUARIO` int NOT NULL,
+  `TIPO` varchar(7) NOT NULL,
+  `LIMITE_CREDITO` int DEFAULT NULL,
+  `FECHA_CORTE` date DEFAULT NULL,
+  `SALDO` int DEFAULT NULL,
+  `VENCIMIENTO` date NOT NULL,
+  `INSTITUCION` varchar(30) NOT NULL,
+  `TEL_INSTITUCION` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -57,7 +85,7 @@ CREATE TABLE `USUARIOS` (
 --
 
 INSERT INTO `USUARIOS` (`USUARIO_ID`, `USUARIO`, `NOMBRE`, `CORREO`, `PASSWORD`, `FOTO`, `CREADO`) VALUES
-(1, 'sabritasco', 'Emmanuel González Díaz', 'cocacolapepsipopotecocacola@hotmail.com', 'a3832f9662a980654bbbe368ce630b55', 'sabritasco.jpg', '2020-06-13 19:16:05');
+(1, 'sabritasco', 'González Díaz Emmanuel', 'cocacolapepsipopotecocacola@hotmail.com', 'a3832f9662a980654bbbe368ce630b55', 'sabritasco.jpg', '2020-06-26 13:38:11');
 
 --
 -- Índices para tablas volcadas
@@ -67,9 +95,17 @@ INSERT INTO `USUARIOS` (`USUARIO_ID`, `USUARIO`, `NOMBRE`, `CORREO`, `PASSWORD`,
 -- Indices de la tabla `DEUDORES`
 --
 ALTER TABLE `DEUDORES`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`DEUDOR_ID`),
   ADD UNIQUE KEY `CORREO` (`CORREO`),
   ADD UNIQUE KEY `CELULAR` (`CELULAR`);
+
+--
+-- Indices de la tabla `TARJETAS`
+--
+ALTER TABLE `TARJETAS`
+  ADD PRIMARY KEY (`TARJETA_ID`),
+  ADD UNIQUE KEY `TERMINACION` (`TERMINACION`),
+  ADD UNIQUE KEY `IDENTIFICADOR` (`IDENTIFICADOR`);
 
 --
 -- Indices de la tabla `USUARIOS`
@@ -88,7 +124,7 @@ ALTER TABLE `USUARIOS`
 -- AUTO_INCREMENT de la tabla `DEUDORES`
 --
 ALTER TABLE `DEUDORES`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `DEUDOR_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS`

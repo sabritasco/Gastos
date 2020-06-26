@@ -5,11 +5,7 @@ require_once 'class/ParametersDB.php';
 if (!isset($_SESSION['logged_in'])) {
   header('Location: index.php');
 }
-$title = "Inicio";
-$filename = basename($_SERVER["SCRIPT_FILENAME"], '.php');
-if (strpos($filename, 'debtors') !== false) {
-	$title = "Deudores";
-}
+require_once 'templates/title.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
