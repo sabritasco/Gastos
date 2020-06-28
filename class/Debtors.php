@@ -51,7 +51,7 @@ class class_Debtors
             } else {
                 // Error DB
                 //$this->_con->error;
-                throw new Exception(ERROR_MYSQL_01);
+                throw new Exception(ERROR_MYSQL);
             }
         } else {
             throw new Exception(DEBTORS_FIELDS_MISSING);

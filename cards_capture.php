@@ -1,5 +1,6 @@
 <?php require_once 'templates/head.php'; ?>
-
+<link rel="stylesheet" type="text/css" href="vendor/datetimepicker/build/jquery.datetimepicker.min.css">
+	<!--===============================================================================================-->
 <body id="page-top">
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -12,7 +13,7 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
-					<?php if (!empty($_POST)) {
+					<?php /*if (!empty($_POST)) {
 						try {
 							$debtors_obj = new class_Debtors();
 							$data = $debtors_obj->insert($_POST);
@@ -20,7 +21,7 @@
 						} catch (Exception $e) {
 							$error = $e->getMessage();
 						}
-					}
+					}*/
 					if (!empty($success) || !empty($error)) : ?>
 						<div class="message_div wrap-input100 p-b-20">
 							<?php require_once 'templates/mensajes.php'; ?>
@@ -43,53 +44,92 @@
 
 
 
-									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-lg-0">First name</label>
+									<div class="form-group row caja">
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-lg-0">Last 4 digits</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="First name is required">
-												<input class="form-control input" type="text" name="name">
+											<div class="wrap-input validate-input form-group row " data-validate="Last 4 digits is required">
+												<input class="form-control input" type="text" name="digits">
 												<span class="focus-input"></span>
+											</div>
+										</div>
+									</div>
 
+									<div class="form-group row caja">
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Identifier</label>
+										<div class="col-lg-9">
+											<div class="wrap-input validate-input form-group row " data-validate="Identifier is required">
+												<input class="form-control input" type="text" name="identifier">
+												<span class="focus-input"></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group row caja">
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Type</label>
+										<div class="col-lg-9">
+											<div class="wrap-input validate-input form-group row" data-validate="Type is required">
+												<select id="type" class="form-control input" name="type">
+													<option value="">Seleccione...</option>
+													<option value="Debito">Debito</option>
+													<option value="Credito">Credito</option>
+												</select>
+												<span class="focus-input"></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group row caja">
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Credit limit</label>
+										<div class="col-lg-9">
+											<div class="wrap-input validate-input form-group row " data-validate="Credit limit is required">
+												<input class="form-control input" type="text" name="limit">
+												<span class="focus-input"></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group row caja">
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Cutoff date</label>
+										<div class="col-lg-9">
+											<div class="wrap-input validate-input form-group row " data-validate="Cutoff date is required">
+												<input class="form-control input" type="text" name="cutoff">
+												<span class="focus-input"></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group row caja">
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Balance</label>
+										<div class="col-lg-9">
+											<div class="wrap-input validate-input form-group row " data-validate="Balance is required">
+												<input class="form-control input" type="text" name="balance">
+												<span class="focus-input"></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group row caja">
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Expiration date</label>
+										<div class="col-lg-9">
+											<div class="wrap-input validate-input form-group row " data-validate="Expiration date is required">
+												<input class="form-control input" type="text" name="expiration">
+												<span class="focus-input"></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group row caja">
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Bank institution phone</label>
+										<div class="col-lg-9">
+											<div class="wrap-input validate-input form-group row " data-validate="Banking institution phone is required">
+												<input class="form-control input" type="text" name="phone">
+												<span class="focus-input"></span>
 											</div>
 										</div>
 									</div>
 
 
-									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Last name</label>
-										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Last name is required">
-												<input class="form-control input" type="text" name="last_name">
-												<span class="focus-input"></span>
 
-											</div>
-										</div>
-									</div>
-
-
-
-									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Email</label>
-										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Email is required">
-												<input id="email" class="form-control input" type="text" name="email">
-												<span class="focus-input"></span>
-
-											</div>
-										</div>
-									</div>
-
-
-									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Mobile</label>
-										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Mobile is required">
-												<input id="mobile" class="form-control input" type="text" name="mobile">
-												<span class="focus-input"></span>
-
-											</div>
-										</div>
-									</div>
 
 
 
@@ -121,9 +161,11 @@
 </body>
 <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
 <!--===============================================================================================-->
+<script src="vendor/datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
+<!--===============================================================================================-->
 <script src="js/main.js"></script>
 <!--===============================================================================================-->
-<script src="js/debtors_capture.js"></script>
+<script src="js/cards_capture.js"></script>
 <!--===============================================================================================-->
 
 </html>
