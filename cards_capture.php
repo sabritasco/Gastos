@@ -1,6 +1,7 @@
 <?php require_once 'templates/head.php'; ?>
 <link rel="stylesheet" type="text/css" href="vendor/datetimepicker/build/jquery.datetimepicker.min.css">
-	<!--===============================================================================================-->
+<!--===============================================================================================-->
+
 <body id="page-top">
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -78,35 +79,58 @@
 										</div>
 									</div>
 
-									<div class="form-group row caja">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Credit limit</label>
-										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Credit limit is required">
-												<input class="form-control input" type="text" name="limit">
-												<span class="focus-input"></span>
-											</div>
-										</div>
-									</div>
 
-									<div class="form-group row caja">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Cutoff date</label>
-										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Cutoff date is required">
-												<input class="form-control input" type="text" name="cutoff">
-												<span class="focus-input"></span>
+									<!--- Inicia credito -->
+									<div id="credito">
+										<div class="form-group row caja">
+											<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Credit limit</label>
+											<div class="col-lg-9">
+												<div class="wrap-input validate-input form-group row " data-validate="Credit limit is required">
+													<input id="limit" class="form-control input" type="text" name="limit">
+													<span class="focus-input"></span>
+												</div>
 											</div>
 										</div>
-									</div>
 
-									<div class="form-group row caja">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Balance</label>
-										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Balance is required">
-												<input class="form-control input" type="text" name="balance">
-												<span class="focus-input"></span>
+										<div class="form-group row caja">
+											<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Cutoff date</label>
+											<div class="col-lg-9">
+												<div class="wrap-input validate-input form-group row " data-validate="Cutoff date is required">
+													<input id="cutoff" class="form-control input" type="text" name="cutoff" readonly>
+													<span class="focus-input">
+													</span>
+												</div>
 											</div>
 										</div>
 									</div>
+									<!--- Termina credito -->
+
+
+									<!--
+
+										<div class="col-xl-4 col-md-6 text-left mt-3">
+		<label for="fecha_archiva"><strong>Fecha en que se archiva/concluye:</strong></label>
+		<div class="input-group-prepend">
+			<span class="input-group-text" id="activa_1"><i class="fas fa-calendar-alt"></i></span>
+			<input readonly type="datetime" class="form-control bg-white pl-1" name="fecha_archiva" id="fecha_archiva">
+		</div>
+	</div>	
+
+	-->
+
+									<!--- Inicia debito -->
+									<div id="debito">
+										<div class="form-group row caja">
+											<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Balance</label>
+											<div class="col-lg-9">
+												<div class="wrap-input validate-input form-group row " data-validate="Balance is required">
+													<input id="balance" class="form-control input" type="text" name="balance">
+													<span class="focus-input"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--- Termina debito -->
 
 									<div class="form-group row caja">
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Expiration date</label>

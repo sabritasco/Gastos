@@ -1,6 +1,8 @@
 (function ($) {
     "use strict";
 
+
+    //Validar formulario
     var validator = $("#form-validate").validate({
 
         focusCleanup: true,
@@ -35,6 +37,7 @@
                 required: function (element) {
                     return $("#type").val() == 'Credito';
                 },
+                digits: true,
             },
             cutoff: {
                 required: function (element) {
@@ -45,6 +48,7 @@
                 required: function (element) {
                     return $("#type").val() == 'Debito';
                 },
+                digits: true,
             },
             expiration: {
                 required: true,
@@ -77,6 +81,67 @@
         },
 
     });
+    //Validar formulario
 
+
+    //Mostrar y ocultar campos de Tarjetas de Debito y Credito
+    $('#type').on('change', function () {
+        if ($(this).find(":selected").val() == "Credito") {
+            if (!$('#debito').is(':hidden')) {
+                $('#balance').val("");
+                $('#balance').valid();
+                $('#limit, #cutoff').valid();
+                $('#debito').slideUp("slow");
+            }
+            if ($('#credito').is(':hidden')) {
+                $('#credito').slideDown("slow");
+                $('#limit, #cutoff').valid();
+            }
+        }
+        if ($(this).find(":selected").val() == "Debito") {
+            if (!$('#credito').is(':hidden')) {
+                $('#limit, #cutoff').val("");
+                $('#limit, #cutoff').valid();
+                $('#balance').valid();
+                $('#credito').slideUp("slow");
+            }
+            if ($('#debito').is(':hidden')) {
+                $('#debito').slideDown("slow");
+                $('#balance').valid();
+            }
+        }
+    });
+    //Mostrar y ocultar campos de Tarjetas de Debito y Credito
+
+    //Mostrar calendarios
+    $.datetimepicker.setLocale('es');
+    $("#cutoff").datetimepicker({
+        timepicker:false,
+        format:'Y/m/d',
+        maxDate: 0,
+        theme:'dark',
+    });
+
+    
+
+
+    /*
+          submitHandler: function(form) {
+            $("#enviar").attr("disabled", true);
+            form.submit();
+        }	
+    });
+
+    $.datetimepicker.setLocale('es');
+    $('#fecha_archiva').datetimepicker({
+        disabledWeekDays:[0, 6,],
+        timepicker:false,
+        format:'Y/m/d',
+        maxDate: 0
+    });
+
+    $("#activa_1").click(function() {
+        $('#fecha_archiva').focus();
+    });*/
 
 })(jQuery);
