@@ -27,8 +27,8 @@ class class_Debtors
             }
 
             // Verificar Telefono
-            if (filter_var($trimmed_data['mobile'], FILTER_VALIDATE_INT)) {
-                $mobile = mysqli_real_escape_string($this->_con, $trimmed_data['mobile']);
+            if (filter_var($trimmed_data['mobile_debtors'], FILTER_VALIDATE_INT)) {
+                $mobile_debtors = mysqli_real_escape_string($this->_con, $trimmed_data['mobile_debtors']);
             } else {
                 throw new Exception(INVALID_MOBILE);
             }
@@ -38,13 +38,13 @@ class class_Debtors
             $last_name = mysqli_real_escape_string($this->_con,  $trimmed_data['last_name']);
 
 
-            if ((!$name) || (!$last_name) || (!$email) || (!$mobile)) {
+            if ((!$name) || (!$last_name)) {
                 throw new Exception(FIELDS_MISSING);
             }
 
             // Insertar deudor
             $name = $last_name . " " . $name;
-            $query = "INSERT INTO DEUDORES (DEUDOR_ID, ID_USUARIO, NOMBRE, CORREO, CELULAR, CREADO) VALUES (NULL, '" . $_SESSION['USUARIO_ID'] . "', '$name', '$email', '$mobile', CURRENT_TIMESTAMP)";
+            $query = "INSERT INTO DEUDORES (DEUDOR_ID, ID_USUARIO, NOMBRE, CORREO, CELULAR, CREADO) VALUES (NULL, '" . $_SESSION['USUARIO_ID'] . "', '$name', '$email', '$mobile_debtors', CURRENT_TIMESTAMP)";
             if (mysqli_query($this->_con, $query)) {
                 mysqli_close($this->_con);
                 return true;

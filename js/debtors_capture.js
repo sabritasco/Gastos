@@ -37,7 +37,7 @@
                     }
                 }
             },
-            mobile: {
+            mobile_debtors: {
                 required: true,
                 digits: true,
                 minlength: 10,
@@ -45,8 +45,8 @@
                     url: "check-data.php",
                     type: "post",
                     data: {
-                        mobile: function () {
-                            return $("#mobile").val();
+                        mobile_debtors: function () {
+                            return $("#mobile_debtors").val();
                         }
                     }
                 },
@@ -58,13 +58,10 @@
             last_name: "You must enter the last name",
             email: {
                 required: "You must enter the email",
-                email: "Enter a valid email address ",
                 remote: "There is already a debtor registered with that email",
             },
-            mobile: {
+            mobile_debtors: {
                 required: "You must enter the phone number",
-                digits: "Enter a valid phone number",
-                minlength: "Enter a valid phone number",
                 remote: "There is already a debtor registered with that mobile",
             },
         },

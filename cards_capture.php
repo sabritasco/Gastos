@@ -14,15 +14,16 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
-					<?php /*if (!empty($_POST)) {
+					<?php
+					if (!empty($_POST)) {
 						try {
-							$debtors_obj = new class_Debtors();
-							$data = $debtors_obj->insert($_POST);
-							if ($data)$success = DEBTORS_INSERT_SUCCESS;
+							$cards_obj = new class_Cards();
+							$data = $cards_obj->insert($_POST);
+							if ($data) $success = CARDS_INSERT_SUCCESS;
 						} catch (Exception $e) {
 							$error = $e->getMessage();
 						}
-					}*/
+					}
 					if (!empty($success) || !empty($error)) : ?>
 						<div class="message_div wrap-input100 p-b-20">
 							<?php require_once 'templates/mensajes.php'; ?>
@@ -33,7 +34,7 @@
 					<!-- Content Row -->
 					<div class="row justify-content-center">
 
-						<!-- form user info -->
+						<!-- Card form -->
 						<div class="card card-outline-secondary border-left-primary border-bottom-primary m-b-30 p-2 col-lg-12">
 							<div class="card-header">
 								<h3 class="mb-0">Card Information</h3>
@@ -49,7 +50,7 @@
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-lg-0">Last 4 digits</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="Last 4 digits is required">
-												<input class="form-control input" type="text" name="digits">
+												<input id="digits_cards" class="form-control input" type="text" name="digits_cards">
 												<span class="focus-input"></span>
 											</div>
 										</div>
@@ -59,7 +60,7 @@
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Identifier</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="Identifier is required">
-												<input class="form-control input" type="text" name="identifier">
+												<input id="identifier_cards" class="form-control input" type="text" name="identifier_cards">
 												<span class="focus-input"></span>
 											</div>
 										</div>
@@ -96,7 +97,7 @@
 											<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Cutoff date</label>
 											<div class="col-lg-9">
 												<div class="wrap-input validate-input form-group row " data-validate="Cutoff date is required">
-													<input id="cutoff" class="form-control input" type="text" name="cutoff" readonly>
+													<input id="cutoff" class="form-control input" type="text" name="cutoff">
 													<span class="focus-input">
 													</span>
 												</div>
@@ -104,19 +105,6 @@
 										</div>
 									</div>
 									<!--- Termina credito -->
-
-
-									<!--
-
-										<div class="col-xl-4 col-md-6 text-left mt-3">
-		<label for="fecha_archiva"><strong>Fecha en que se archiva/concluye:</strong></label>
-		<div class="input-group-prepend">
-			<span class="input-group-text" id="activa_1"><i class="fas fa-calendar-alt"></i></span>
-			<input readonly type="datetime" class="form-control bg-white pl-1" name="fecha_archiva" id="fecha_archiva">
-		</div>
-	</div>	
-
-	-->
 
 									<!--- Inicia debito -->
 									<div id="debito">
@@ -136,7 +124,29 @@
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Expiration date</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="Expiration date is required">
-												<input class="form-control input" type="text" name="expiration">
+												<input id="expiration" class="form-control input" type="text" name="expiration" placeholder="mm/aaaa" readonly>
+												<span class="icon">
+													<i id="calendar_one" class="fal fa-calendar-alt"></i>
+												</span>
+												<span class="focus-input"></span>
+											</div>
+										</div>
+									</div>
+
+
+
+
+
+
+
+
+									
+
+									<div class="form-group row caja">
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Banking institution</label>
+										<div class="col-lg-9">
+											<div class="wrap-input validate-input form-group row " data-validate="Banking institution is required">
+												<input id="institution" class="form-control input" type="text" name="institution">
 												<span class="focus-input"></span>
 											</div>
 										</div>
@@ -157,17 +167,18 @@
 
 
 
+
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label form-control-label"></label>
 										<div class="col-lg-9">
 											<input type="reset" class="btn btn-secondary" value="Cancel">
-											<input type="submit" class="btn btn-primary" value="Save">
+											<input id="send" type="submit" class="btn btn-primary" value="Save">
 										</div>
 									</div>
 								</form>
 							</div>
 						</div>
-						<!-- /form user info -->
+						<!-- /Card form -->
 
 
 

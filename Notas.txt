@@ -1,0 +1,25 @@
+//Mostrar calendarios JS
+    $.datetimepicker.setLocale('es');
+    $("#expiration").datetimepicker({
+        timepicker: false,
+        format:'Y'
+    });
+      
+    $("#calendar_one").click(function () {
+        $("#expiration").datetimepicker('show');
+    });
+
+
+//Calendario
+<div class="form-group row caja">
+<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Expiration date</label>
+<div class="col-lg-9">
+<div class="wrap-input validate-input form-group row " data-validate="Expiration date is required">
+<input id="expiration" class="form-control input" type="text" name="expiration" placeholder="mm/aaaa" readonly>
+<span class="icon">
+<i id="calendar_one" class="fal fa-calendar-alt"></i>
+</span>
+<span class="focus-input"></span>
+</div>
+</div>
+</div>u

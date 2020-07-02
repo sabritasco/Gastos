@@ -17,18 +17,38 @@
             var thisAlert = $(element).closest(".caja").find(".validate-input");
             thisAlert.removeClass("alert-validate");
         },
-
-
+        submitHandler: function (form) {
+            $("#send").attr("disabled", true);
+            form.submit();
+        },
 
         rules: {
-            digits: {
+            digits_cards: {
                 required: true,
                 digits: true,
                 minlength: 4,
-                maxlength: 4
+                maxlength: 4,
+                remote: {
+                    url: "check-data.php",
+                    type: "post",
+                    data: {
+                        digits_cards: function () {
+                            return $("#digits_cards").val();
+                        }
+                    }
+                },
             },
-            identifier: {
-                required: true
+            identifier_cards: {
+                required: true,
+                remote: {
+                    url: "check-data.php",
+                    type: "post",
+                    data: {
+                        identifier_cards: function () {
+                            return $("#identifier_cards").val();
+                        }
+                    }
+                },
             },
             type: {
                 required: true,
@@ -43,6 +63,8 @@
                 required: function (element) {
                     return $("#type").val() == 'Credito';
                 },
+                digits: true,
+                range: [1, 31]
             },
             balance: {
                 required: function (element) {
@@ -65,19 +87,37 @@
         },
 
         messages: {
-            /*name: "You must enter the name",
-            last_name: "You must enter the last name",
-            email: {
-                required: "You must enter the email",
-                email: "Enter a valid email address ",
-                remote: "There is already a debtor registered with that email",
+            digits_cards: {
+                required: "You must enter the last 4 digits",
+                remote: "You already have a card with that termination",
             },
-            mobile: {
-                required: "You must enter the phone number",
-                digits: "Enter a valid phone number",
-                minlength: "Enter a valid phone number",
-                remote: "There is already a debtor registered with that mobile",
-            },*/
+            identifier_cards: {
+                required: "You must enter an identifier for the card",
+                remote: "you already have a card with that identifier",
+            },
+            type: {
+                required: "You must select the type of card",
+            },
+            limit: {
+                required: "You must enter the credit limit",
+            },
+            cutoff: {
+                required: "You must enter the card cut day",
+            },
+            balance: {
+                required: "You must enter the balance",
+
+            },
+            expiration: {
+                required: "You must select the expiration date",
+            },
+            institution: {
+                required: "You must enter the name of the bank",
+            },
+            phone: {
+                required: "You must enter the bank contact number",
+            },
+
         },
 
     });
@@ -113,35 +153,18 @@
     });
     //Mostrar y ocultar campos de Tarjetas de Debito y Credito
 
+
     //Mostrar calendarios
     $.datetimepicker.setLocale('es');
-    $("#cutoff").datetimepicker({
-        timepicker:false,
-        format:'Y/m/d',
-        maxDate: 0,
-        theme:'dark',
+    $("#expiration").datetimepicker({
+        timepicker: false,
+        format:'m/Y',
+        validateOnBlur: false,
+    });
+      
+    $("#calendar_one").click(function () {
+        $("#expiration").datetimepicker('show');
     });
 
-    
-
-
-    /*
-          submitHandler: function(form) {
-            $("#enviar").attr("disabled", true);
-            form.submit();
-        }	
-    });
-
-    $.datetimepicker.setLocale('es');
-    $('#fecha_archiva').datetimepicker({
-        disabledWeekDays:[0, 6,],
-        timepicker:false,
-        format:'Y/m/d',
-        maxDate: 0
-    });
-
-    $("#activa_1").click(function() {
-        $('#fecha_archiva').focus();
-    });*/
 
 })(jQuery);

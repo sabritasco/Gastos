@@ -84,7 +84,7 @@
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Mobile</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="Mobile is required">
-												<input id="mobile" class="form-control input" type="text" name="mobile">
+												<input id="mobile_debtors" class="form-control input" type="text" name="mobile_debtors">
 												<span class="focus-input"></span>
 
 											</div>
