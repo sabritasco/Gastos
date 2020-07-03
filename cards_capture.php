@@ -120,18 +120,58 @@
 									</div>
 									<!--- Termina debito -->
 
-									<div class="form-group row caja">
+
+
+
+
+
+
+									<!-- Expiration -->
+									<div class="form-group row">
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Expiration date</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Expiration date is required">
-												<input id="expiration" class="form-control input" type="text" name="expiration" placeholder="mm/aaaa" readonly>
-												<span class="icon">
-													<i id="calendar_one" class="fal fa-calendar-alt"></i>
-												</span>
-												<span class="focus-input"></span>
+											<div class="form-group row">
+												<label class="col-xl-1 col-form-label form-control-label border-left-secondary mb-2 lg-sm-0">Month</label>
+												<div class="col caja">
+													<div class="wrap-input validate-input form-group row" data-validate="Month is required">
+														<select id="month" class="form-control input" name="month">
+															<option value="">Seleccione...</option>
+															<option value="01">Enero</option>
+															<option value="02">Febrero</option>
+															<option value="03">Marzo</option>
+															<option value="04">Abril</option>
+															<option value="05">Mayo</option>
+															<option value="06">Junio</option>
+															<option value="07">Julio</option>
+															<option value="08">Agosto</option>
+															<option value="09">Septiembre</option>
+															<option value="10">Octubre</option>
+															<option value="11">Noviembre</option>
+															<option value="12">Diciembre</option>
+														</select>
+														<span class="focus-input"></span>
+													</div>
+												</div>
+
+
+												<label class="col-xl-1 col-form-label form-control-label border-left-secondary mb-2 lg-sm-0">Year</label>
+												<div class="col caja">
+													<div class="wrap-input validate-input form-group row" data-validate="Year is required">
+														<select id="year" class="form-control input" name="year">
+															<option value="">Seleccione...</option>
+															<?php $year = date("Y");
+															for ($i = 1; $i <= 10; $i++) : ?>
+																<option value="<?= $year + $i; ?>"><?= $year + $i; ?></option>
+															<?php endfor; ?>
+														</select>
+														<span class="focus-input"></span>
+													</div>
+												</div>
+
 											</div>
 										</div>
 									</div>
+									<!-- /Expiration -->
 
 
 
@@ -139,8 +179,6 @@
 
 
 
-
-									
 
 									<div class="form-group row caja">
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Banking institution</label>
