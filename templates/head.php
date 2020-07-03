@@ -22,14 +22,6 @@ require_once 'templates/title.php';
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/fontawesome/css/all.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -39,8 +31,6 @@ require_once 'templates/title.php';
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<!--===============================================================================================-->
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
 	<!--===============================================================================================-->
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	<!--===============================================================================================-->

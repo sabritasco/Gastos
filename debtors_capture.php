@@ -1,5 +1,9 @@
 <?php require_once 'templates/head.php'; ?>
-
+<!-- Adicionales -->
+<!--===============================================================================================-->
+<script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+<!--===============================================================================================-->
+<!--End Adicionales -->
 <body id="page-top">
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -119,7 +123,6 @@
 	</div>
 	<!-- End of Page Wrapper -->
 </body>
-<script src="vendor/jquery-validation/jquery.validate.min.js"></script>
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
 <!--===============================================================================================-->

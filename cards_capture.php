@@ -1,7 +1,8 @@
 <?php require_once 'templates/head.php'; ?>
-<link rel="stylesheet" type="text/css" href="vendor/datetimepicker/build/jquery.datetimepicker.min.css">
+<!-- Adicionales -->
+<script src="vendor/jquery-validation/jquery.validate.min.js"></script>
 <!--===============================================================================================-->
-
+<!--End Adicionales -->
 <body id="page-top">
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -235,14 +236,9 @@
 	</div>
 	<!-- End of Page Wrapper -->
 </body>
-<script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
-<!--===============================================================================================-->
 <script src="js/main.js"></script>
 <!--===============================================================================================-->
 <script src="js/cards_capture.js"></script>
 <!--===============================================================================================-->
-
 </html>
 <?php ob_end_flush(); ?>

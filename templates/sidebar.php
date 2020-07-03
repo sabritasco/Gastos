@@ -41,8 +41,8 @@
 		<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Options:</h6>
+				<a class="collapse-item" href="debtors_list.php">List</a>
 				<a class="collapse-item" href="debtors_capture.php">Capture</a>
-				<a class="collapse-item" href="#">List</a>
 			</div>
 		</div>
 	</li>
@@ -59,8 +59,8 @@
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Options:</h6>
-				<a class="collapse-item" href="cards_capture.php">Capture</a>
 				<a class="collapse-item" href="#">List</a>
+				<a class="collapse-item" href="cards_capture.php">Capture</a>
 			</div>
 		</div>
 	</li>
@@ -83,14 +83,14 @@
 		</a>
 		<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Login Screens:</h6>
-				<a class="collapse-item" href="login.html">Login</a>
-				<a class="collapse-item" href="register.html">Register</a>
-				<a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+				<h6 class="collapse-header">Recursos:</h6>
+				<a class="collapse-item" href="template.php">Template</a>
+				<a class="collapse-item" href="#">Register</a>
+				<a class="collapse-item" href="#">Forgot Password</a>
 				<div class="collapse-divider"></div>
 				<h6 class="collapse-header">Other Pages:</h6>
-				<a class="collapse-item" href="404.html">404 Page</a>
-				<a class="collapse-item" href="blank.html">Blank Page</a>
+				<a class="collapse-item" href="#">404 Page</a>
+				<a class="collapse-item" href="#">Blank Page</a>
 			</div>
 		</div>
 	</li>
