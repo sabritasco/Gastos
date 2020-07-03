@@ -57,7 +57,7 @@
                 required: function (element) {
                     return $("#type").val() == 'Credito';
                 },
-                digits: true,
+                number: true,
             },
             cutoff: {
                 required: function (element) {
@@ -70,9 +70,12 @@
                 required: function (element) {
                     return $("#type").val() == 'Debito';
                 },
-                digits: true,
+                number: true,
             },
-            expiration: {
+            month: {
+                required: true,
+            },
+            year: {
                 required: true,
             },
             institution: {
@@ -108,8 +111,11 @@
                 required: "You must enter the balance",
 
             },
-            expiration: {
-                required: "You must select the expiration date",
+            month: {
+                required: "You must select the month",
+            },
+            year: {
+                required: "You must select the year",
             },
             institution: {
                 required: "You must enter the name of the bank",
@@ -152,19 +158,6 @@
         }
     });
     //Mostrar y ocultar campos de Tarjetas de Debito y Credito
-
-
-    //Mostrar calendarios
-    $.datetimepicker.setLocale('es');
-    $("#expiration").datetimepicker({
-        timepicker: false,
-        format:'m/Y',
-        validateOnBlur: false,
-    });
-      
-    $("#calendar_one").click(function () {
-        $("#expiration").datetimepicker('show');
-    });
 
 
 })(jQuery);

@@ -39,7 +39,7 @@ class class_Cards
                 if ($type == "Credito") {
 
                     // Verificar limite de credito
-                    if (filter_var($trimmed_data['limit'], FILTER_VALIDATE_INT)) {
+                    if (filter_var($trimmed_data['limit'], FILTER_VALIDATE_FLOAT)) {
                         $limit = mysqli_real_escape_string($this->_con, $trimmed_data['limit']);
                     } else {
                         throw new Exception(CARDS_INVALID_LIMIT);
@@ -56,7 +56,7 @@ class class_Cards
                 } else {
 
                     // Verificar saldo
-                    if (filter_var($trimmed_data['balance'], FILTER_VALIDATE_INT)) {
+                    if (filter_var($trimmed_data['balance'], FILTER_VALIDATE_FLOAT)) {
                         $balance = mysqli_real_escape_string($this->_con, $trimmed_data['balance']);
                     } else {
                         throw new Exception(CARDS_INVALID_BALANCE);
@@ -69,11 +69,21 @@ class class_Cards
                 throw new Exception(CARDS_INVALID_TYPE);
             }
 
+
             // Verificar fecha de vencimiento
-            $expiration = mysqli_real_escape_string($this->_con,  $trimmed_data['expiration']);
-            if ((!$expiration) or !preg_match('(((0[123456789]|10|11|12)/(([1][9][0-9][0-9])|([2][0-9][0-9][0-9]))))', $expiration)) {
-                throw new Exception(CARDS_INVALID_EXPIRATION);
+            if (filter_var($trimmed_data['month'], FILTER_VALIDATE_INT,  array('options' => array('min_range' => 1, 'max_range' => 12)))) {
+                $month = mysqli_real_escape_string($this->_con, $trimmed_data['month']);
+            } else {
+                throw new Exception(CARDS_INVALID_MONTH);
             }
+            if (filter_var($trimmed_data['year'], FILTER_VALIDATE_INT,  array('options' => array('min_range' => date("Y")+1, 'max_range' => date("Y")+10)))) {
+                $year = mysqli_real_escape_string($this->_con, $trimmed_data['year']);
+            } else {
+                throw new Exception(CARDS_INVALID_YEAR);
+            }
+            $expiration = $month."/".$year;
+
+            
 
             // Verificar y telefono de institucion
             $institution = mysqli_real_escape_string($this->_con,  $trimmed_data['institution']);
@@ -82,9 +92,8 @@ class class_Cards
                 throw new Exception(FIELDS_MISSING);
             }
 
-
             // Insertar tarjeta
-            $query = "INSERT INTO TARJETAS (TARJETA_ID, TERMINACION, IDENTIFICADOR, ID_USUARIO, TIPO, LIMITE_CREDITO, FECHA_CORTE, SALDO, VENCIMIENTO, INSTITUCION, TEL_INSTITUCION) VALUES (NULL, '$digits_cards', '$identifier_cards', '" . $_SESSION['USUARIO_ID'] . "', '$type', NULLIF('$limit',''), NULLIF('$cutoff',''), NULLIF('$balance',''), '$expiration', '$institution', '$phone');";
+            $query = "INSERT INTO TARJETAS (TARJETA_ID, ID_USUARIO, TERMINACION, IDENTIFICADOR, TIPO, LIMITE_CREDITO, FECHA_CORTE, SALDO, VENCIMIENTO, INSTITUCION, TEL_INSTITUCION) VALUES (NULL, '" . $_SESSION['USUARIO_ID'] . "', '$digits_cards', '$identifier_cards', '$type', NULLIF('$limit',''), NULLIF('$cutoff',''), NULLIF('$balance',''), '$expiration', '$institution', '$phone');";
             if (mysqli_query($this->_con, $query)) {
                 mysqli_close($this->_con);
                 return true;

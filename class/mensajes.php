@@ -21,7 +21,10 @@ define('CARDS_INVALID_TYPE', 'Debe seleccionar el tip ode tarjeta de crédito.')
 define('CARDS_INVALID_LIMIT', 'Debe ingresar solo números en el limite de crédito.');
 define('CARDS_INVALID_CUTOFF', 'Debe ingresar un día de corte valido');
 define('CARDS_INVALID_BALANCE', 'Debe ingresar el balance de la tarjeta');
-define('CARDS_INVALID_EXPIRATION', 'Debe seleccionar una fecha de vencimiento válida (mm/aaaa)');
+define('CARDS_INVALID_MONTH', 'Debe seleccionar el mes de vencimiento');
+define('CARDS_INVALID_YEAR', 'Debe seleccionar el año de vencimiento');
+
+
 
 
 
