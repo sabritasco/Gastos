@@ -41,12 +41,6 @@
 										</tr>
 									</thead>
 									<tfoot>
-										<tr>
-											<th>Actions</th>
-											<th>Name</th>
-											<th>Mobile</th>
-											<th>Email</th>
-										</tr>
 									</tfoot>
 									<tbody>
 									</tbody>

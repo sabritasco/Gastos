@@ -2,6 +2,9 @@
     "use strict";
 
     $('#dataTable').DataTable({
+        "paging": false,
+        "info": false,
+        "searching": false,
         responsive: true,
         "sAjaxSource": "tables/list_debtors.php",
         "aoColumns": [{
