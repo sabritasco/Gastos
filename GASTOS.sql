@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 26-06-2020 a las 17:10:23
+-- Tiempo de generación: 06-07-2020 a las 12:29:22
 -- Versión del servidor: 8.0.20-0ubuntu0.20.04.1
 -- Versión de PHP: 7.4.3
 
@@ -42,7 +42,7 @@ CREATE TABLE `DEUDORES` (
 --
 
 INSERT INTO `DEUDORES` (`DEUDOR_ID`, `ID_USUARIO`, `NOMBRE`, `CORREO`, `CELULAR`, `CREADO`) VALUES
-(1, 1, 'González Díaz Emmanuel', 'cocacolapepsipopotecocacola@hotmail.com', '5527315705', '2020-06-26 13:59:21');
+(1, 1, 'González Díaz Emmanuel', 'cocacolapepsipopotecocacola@hotmail.com', '5527315705', '2020-07-02 17:01:33');
 
 -- --------------------------------------------------------
 
@@ -52,17 +52,25 @@ INSERT INTO `DEUDORES` (`DEUDOR_ID`, `ID_USUARIO`, `NOMBRE`, `CORREO`, `CELULAR`
 
 CREATE TABLE `TARJETAS` (
   `TARJETA_ID` int NOT NULL,
+  `ID_USUARIO` int NOT NULL,
   `TERMINACION` int NOT NULL,
   `IDENTIFICADOR` varchar(50) NOT NULL,
-  `ID_USUARIO` int NOT NULL,
   `TIPO` varchar(7) NOT NULL,
   `LIMITE_CREDITO` int DEFAULT NULL,
-  `FECHA_CORTE` date DEFAULT NULL,
+  `FECHA_CORTE` int DEFAULT NULL,
   `SALDO` int DEFAULT NULL,
-  `VENCIMIENTO` date NOT NULL,
+  `VENCIMIENTO` varchar(7) NOT NULL,
   `INSTITUCION` varchar(30) NOT NULL,
   `TEL_INSTITUCION` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `TARJETAS`
+--
+
+INSERT INTO `TARJETAS` (`TARJETA_ID`, `ID_USUARIO`, `TERMINACION`, `IDENTIFICADOR`, `TIPO`, `LIMITE_CREDITO`, `FECHA_CORTE`, `SALDO`, `VENCIMIENTO`, `INSTITUCION`, `TEL_INSTITUCION`) VALUES
+(1, 1, 9374, 'Principal', 'Credito', 115520, 24, NULL, '2/2022', 'Santander', '5551694300'),
+(2, 1, 4416, 'Nomina', 'Debito', NULL, NULL, 2599, '3/2022', 'Banorte', '5551405600');
 
 -- --------------------------------------------------------
 
@@ -124,7 +132,13 @@ ALTER TABLE `USUARIOS`
 -- AUTO_INCREMENT de la tabla `DEUDORES`
 --
 ALTER TABLE `DEUDORES`
-  MODIFY `DEUDOR_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `DEUDOR_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `TARJETAS`
+--
+ALTER TABLE `TARJETAS`
+  MODIFY `TARJETA_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS`
