@@ -151,3 +151,10 @@ html {
   width: 100%;
   z-index: 1;
 }
+
+#dataTable tbody tr:nth-of-type(odd) {
+  background-color: #f3f3f3;
+}
+#dataTable tbody tr:nth-of-type(even) {
+  background-color: white;
+}

@@ -5,7 +5,13 @@
         "paging": false,
         "info": false,
         "searching": false,
-        responsive: true,
+        responsive: {
+            details: {
+                display: $.fn.dataTable.Responsive.display.childRowImmediate,
+                type: 'none',
+                target: ''
+            }
+        },
         "sAjaxSource": "tables/list_debtors.php",
         "aoColumns": [{
                 mData: 'Acciones'
@@ -21,13 +27,10 @@
             }
         ],
         columnDefs: [{
-                responsivePriority: 1,
-                targets: 0,
-            },
-            {
-                responsivePriority: 2,
+                responsivePriority: -1,
                 targets: 1,
-            }
+            },
+
         ]
     });
 

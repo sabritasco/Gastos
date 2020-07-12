@@ -14,6 +14,6 @@ switch ($file) {
         $title = 'Capturar Tarjeta';
         break;
     default;
-        $title = 'Administración de Gastos';
+        $title = 'Administración';
         break;
 }

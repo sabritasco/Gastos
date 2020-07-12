@@ -36,8 +36,8 @@
 										<tr>
 											<th>Actions</th>
 											<th>Name</th>
-											<th>Mobile</th>
 											<th>Email</th>
+											<th>Mobile</th>
 										</tr>
 									</thead>
 									<tfoot>

@@ -23,6 +23,13 @@
     }
   });
 
+  if ($(window).width() < 480 ) {
+    $("body").addClass("sidebar-toggled");
+    $(".sidebar").addClass("toggled");
+    $(".sidebar .collapse").collapse("hide");
+  }
+
+
   // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
   $("body.fixed-nav .sidebar").on("mousewheel DOMMouseScroll wheel", function (
     e
