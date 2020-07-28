@@ -16,28 +16,33 @@
 
 				<!-- Listado Deudores -->
 				<div class="container-fluid">
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Debtors</h6>
-						</div>
-						<div class="card-body">
-							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-									<thead>
-										<tr>
-											<th>Actions</th>
-											<th>Name</th>
-											<th>Email</th>
-											<th>Mobile</th>
-										</tr>
-									</thead>
-									<tfoot>
-									</tfoot>
-									<tbody>
-									</tbody>
-								</table>
+
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">Debtors</h1>
+					</div>
+
+					<!-- Row -->
+					<div class="row">
+
+
+
+
+						<div class="col-xl-6 col-lg-6 card shadow mb-4">
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold text-primary">Nombre:</h6>
+							</div>
+							<div class="card-body">
+								<p>Tel: </p>
+								<p>Correo: </p>
+							</div>
+							<div class="card-footer">
+								Footer
 							</div>
 						</div>
+
+
+
+						<!-- End Row -->
 					</div>
 				</div>
 				<!-- End Listado Deudores -->
