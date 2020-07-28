@@ -38,7 +38,7 @@
 						<!-- form user info -->
 						<div class="card card-outline-secondary border-left-primary border-bottom-primary m-b-30 p-2 col-lg-12">
 							<div class="card-header">
-								<h3 class="mb-0">Debtors Information</h3>
+								<h3 class="mb-0">Debtors data</h3>
 							</div>
 							<div class="card-body">
 								<form id="form-validate" class="form validate-form" role="form" autocomplete="off" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">

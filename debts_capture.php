@@ -38,7 +38,7 @@
 						<!-- Card form -->
 						<div class="card card-outline-secondary border-left-primary border-bottom-primary m-b-30 p-2 col-lg-12">
 							<div class="card-header">
-								<h3 class="mb-0">Card data</h3>
+								<h3 class="mb-0">Debt data</h3>
 							</div>
 							<div class="card-body">
 								<form id="form-validate" class="form validate-form" role="form" autocomplete="off" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
@@ -238,7 +238,7 @@
 </body>
 <script src="js/main.js"></script>
 <!--===============================================================================================-->
-<script src="js/cards_capture.js"></script>
+<script src="js/debts_capture.js"></script>
 <!--===============================================================================================-->
 </html>
 <?php ob_end_flush(); ?>

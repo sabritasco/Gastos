@@ -23,7 +23,7 @@
     }
   });
 
-  if ($(window).width() < 480 ) {
+  if ($(window).width() < 480) {
     $("body").addClass("sidebar-toggled");
     $(".sidebar").addClass("toggled");
     $(".sidebar .collapse").collapse("hide");
@@ -86,7 +86,7 @@
     });
   }
 
-
+  $('a[title]').tooltip();
 
 
 

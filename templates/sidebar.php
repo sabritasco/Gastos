@@ -31,11 +31,26 @@
 		Admon
 	</div>
 
+	<!-- Debts -->
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseOne">
+			<i class="fas fa-dollar-sign"></i>
+			<span>Debts</span>
+		</a>
+		<div id="collapseZero" class="collapse" aria-labelledby="headingZero" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<h6 class="collapse-header">Options:</h6>
+				<a class="collapse-item" href="debts_capture.php">Capture</a>
+			</div>
+		</div>
+	</li>
+	<!-- End Debts -->
+
 
 	<!-- Debtors -->
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			<i class="far fa-hand-holding-usd"></i>
+			<i class="fas fa-user-friends"></i>
 			<span>Debtors</span>
 		</a>
 		<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
@@ -59,7 +74,7 @@
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Options:</h6>
-				<a class="collapse-item" href="#">List</a>
+				<a class="collapse-item" href="cards_list.php">List</a>
 				<a class="collapse-item" href="cards_capture.php">Capture</a>
 			</div>
 		</div>

@@ -7,11 +7,17 @@ switch ($file) {
     case 'debtors_list';
         $title = 'Listado de deudores';
         break;
+    case 'debts_capture';
+        $title = 'Capturar deuda';
+        break;
     case 'cards_capture';
         $title = 'Capturar Tarjeta';
         break;
+    case 'cards_list';
+        $title = 'Listado de tarjetas';
+        break;
     case 'template';
-        $title = 'Capturar Tarjeta';
+        $title = 'Template';
         break;
     default;
         $title = 'Administración';
