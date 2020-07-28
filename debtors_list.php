@@ -25,20 +25,45 @@
 					<div class="row">
 
 
+						<?php
+						require_once 'class/ParametersDB.php';
+						$db = new class_ConnectDB();
+						$query = " SELECT * FROM DEUDORES";
+						$result = mysqli_query($db->con, $query);
+						$data = mysqli_fetch_all($result);
+						for ($i = 0; $i < count($data); $i++) :
+						?>
 
 
-						<div class="col-xl-6 col-lg-6 card shadow mb-4">
-							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">Nombre:</h6>
+							<div class="col-lg-6">
+								<div class="card shadow mb-4">
+									<div class="card-header py-3">
+										<h6 class="m-0 font-weight-bold text-primary"><?= $data[$i]['2'] ?></h6>
+									</div>
+									<div class="card-body">
+										Tel: <?= $data[$i]['4'] ?>
+										</br>
+										Email: <?= $data[$i]['3'] ?>
+									</div>
+									<div class="card-footer">
+										<a href="#1" class="btn btn-icon" role="button">
+											<i class="fas fa-ellipsis-v"></i>
+										</a>
+										<a href="#1" class="btn btn-icon" role="button">
+											<i class="far fa-info-circle"></i>
+										</a>
+										<a href="#1" class="btn btn-icon" role="button">
+											<i class="far fa-trash-alt"></i>
+										</a>
+									</div>
+								</div>
 							</div>
-							<div class="card-body">
-								<p>Tel: </p>
-								<p>Correo: </p>
-							</div>
-							<div class="card-footer">
-								Footer
-							</div>
-						</div>
+
+
+						<?php
+						endfor;
+						?>
+
 
 
 
@@ -64,8 +89,5 @@
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
 <!--===============================================================================================-->
-<script src="js/debtors_list.js"></script>
-<!--===============================================================================================-->
-
 </html>
 <?php ob_end_flush(); ?>
