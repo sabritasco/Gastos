@@ -1,13 +1,4 @@
 <?php require_once 'templates/head.php'; ?>
-<!-- Adicionales -->
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/DataTables/datatables.min.css">
-<!--===============================================================================================-->
-<script src="vendor/DataTables/datatables.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/DataTables/SB_Admin/dataTables.bootstrap4.min.js"></script>
-<!--===============================================================================================-->
-<!--End Adicionales -->
 
 <body id="page-top">
 	<!-- Page Wrapper -->
