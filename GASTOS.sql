@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 06-07-2020 a las 12:51:56
--- Versión del servidor: 8.0.20-0ubuntu0.20.04.1
+-- Tiempo de generación: 29-07-2020 a las 20:58:12
+-- Versión del servidor: 8.0.21-0ubuntu0.20.04.3
 -- Versión de PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -25,16 +25,57 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `CARGOS`
+--
+
+DROP TABLE IF EXISTS `CARGOS`;
+CREATE TABLE IF NOT EXISTS `CARGOS` (
+  `ID_CARGO` int NOT NULL AUTO_INCREMENT,
+  `ID_USUARIO` int NOT NULL,
+  `ID_DEUDOR` int NOT NULL,
+  `ID_TARJETA` int DEFAULT NULL,
+  `TITULO_CARGO` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `FECHA_CARGO` date NOT NULL,
+  `FECHA_LIQUIDACION` date NOT NULL,
+  PRIMARY KEY (`ID_CARGO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `DEUDAS`
+--
+
+DROP TABLE IF EXISTS `DEUDAS`;
+CREATE TABLE IF NOT EXISTS `DEUDAS` (
+  `ID_DEUDA` int NOT NULL AUTO_INCREMENT,
+  `ID_USUARIO` int NOT NULL,
+  `ID_DEUDOR` int NOT NULL,
+  `ID_TARJETA` int DEFAULT NULL,
+  `FECHA_DEUDA` date NOT NULL,
+  `TOTAL_DEUDA` float NOT NULL,
+  `TITULO_DEUDA` varchar(150) NOT NULL,
+  `NUMERO_PAGOS` int NOT NULL,
+  PRIMARY KEY (`ID_DEUDA`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `DEUDORES`
 --
 
-CREATE TABLE `DEUDORES` (
-  `DEUDOR_ID` int NOT NULL,
+DROP TABLE IF EXISTS `DEUDORES`;
+CREATE TABLE IF NOT EXISTS `DEUDORES` (
+  `ID_DEUDOR` int NOT NULL AUTO_INCREMENT,
   `ID_USUARIO` int NOT NULL,
   `NOMBRE` varchar(50) NOT NULL,
   `CORREO` varchar(60) NOT NULL,
   `CELULAR` varchar(15) NOT NULL,
-  `CREADO` datetime NOT NULL
+  `CREADO` datetime NOT NULL,
+  PRIMARY KEY (`ID_DEUDOR`),
+  UNIQUE KEY `CORREO` (`CORREO`),
+  UNIQUE KEY `CELULAR` (`CELULAR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -43,18 +84,22 @@ CREATE TABLE `DEUDORES` (
 -- Estructura de tabla para la tabla `TARJETAS`
 --
 
-CREATE TABLE `TARJETAS` (
-  `TARJETA_ID` int NOT NULL,
+DROP TABLE IF EXISTS `TARJETAS`;
+CREATE TABLE IF NOT EXISTS `TARJETAS` (
+  `ID_TARJETA` int NOT NULL AUTO_INCREMENT,
   `ID_USUARIO` int NOT NULL,
   `TERMINACION` int NOT NULL,
   `IDENTIFICADOR` varchar(50) NOT NULL,
   `TIPO` varchar(7) NOT NULL,
   `LIMITE_CREDITO` int DEFAULT NULL,
   `FECHA_CORTE` int DEFAULT NULL,
-  `SALDO` int DEFAULT NULL,
+  `SALDO` float DEFAULT NULL,
   `VENCIMIENTO` varchar(7) NOT NULL,
   `INSTITUCION` varchar(30) NOT NULL,
-  `TEL_INSTITUCION` varchar(15) NOT NULL
+  `TEL_INSTITUCION` varchar(15) NOT NULL,
+  PRIMARY KEY (`ID_TARJETA`),
+  UNIQUE KEY `TERMINACION` (`TERMINACION`),
+  UNIQUE KEY `IDENTIFICADOR` (`IDENTIFICADOR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -63,66 +108,20 @@ CREATE TABLE `TARJETAS` (
 -- Estructura de tabla para la tabla `USUARIOS`
 --
 
-CREATE TABLE `USUARIOS` (
-  `USUARIO_ID` int UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `USUARIOS`;
+CREATE TABLE IF NOT EXISTS `USUARIOS` (
+  `ID_USUARIO` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `USUARIO` varchar(50) NOT NULL,
   `NOMBRE` varchar(50) NOT NULL,
   `CORREO` varchar(60) NOT NULL,
   `PASSWORD` varchar(60) NOT NULL,
   `FOTO` varchar(250) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `CREADO` datetime NOT NULL
+  `CREADO` datetime NOT NULL,
+  PRIMARY KEY (`ID_USUARIO`),
+  UNIQUE KEY `USUARIO` (`USUARIO`),
+  KEY `CORREO` (`CORREO`),
+  KEY `PASSWORD` (`PASSWORD`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `DEUDORES`
---
-ALTER TABLE `DEUDORES`
-  ADD PRIMARY KEY (`DEUDOR_ID`),
-  ADD UNIQUE KEY `CORREO` (`CORREO`),
-  ADD UNIQUE KEY `CELULAR` (`CELULAR`);
-
---
--- Indices de la tabla `TARJETAS`
---
-ALTER TABLE `TARJETAS`
-  ADD PRIMARY KEY (`TARJETA_ID`),
-  ADD UNIQUE KEY `TERMINACION` (`TERMINACION`),
-  ADD UNIQUE KEY `IDENTIFICADOR` (`IDENTIFICADOR`);
-
---
--- Indices de la tabla `USUARIOS`
---
-ALTER TABLE `USUARIOS`
-  ADD PRIMARY KEY (`USUARIO_ID`),
-  ADD UNIQUE KEY `USUARIO` (`USUARIO`),
-  ADD KEY `CORREO` (`CORREO`),
-  ADD KEY `PASSWORD` (`PASSWORD`) USING BTREE;
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `DEUDORES`
---
-ALTER TABLE `DEUDORES`
-  MODIFY `DEUDOR_ID` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `TARJETAS`
---
-ALTER TABLE `TARJETAS`
-  MODIFY `TARJETA_ID` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `USUARIOS`
---
-ALTER TABLE `USUARIOS`
-  MODIFY `USUARIO_ID` int UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

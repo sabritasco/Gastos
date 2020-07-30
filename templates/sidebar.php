@@ -35,12 +35,14 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseOne">
 			<i class="fas fa-dollar-sign"></i>
-			<span>Debts</span>
+			<span>Expense and Debts
+</span>
 		</a>
 		<div id="collapseZero" class="collapse" aria-labelledby="headingZero" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Options:</h6>
-				<a class="collapse-item" href="debts_capture.php">Capture</a>
+				<a class="collapse-item" href="expense_capture.php">Capture expense</a>
+				<a class="collapse-item" href="debts_capture.php">Capture debts</a>
 			</div>
 		</div>
 	</li>

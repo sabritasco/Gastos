@@ -69,7 +69,7 @@ if(isset($_GET['success']) && $_GET['success'] == 'logout'){
 				<?php endif; ?>
 
 
-				<form class="login100-form validate-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+				<form class="login100-form validate-form" action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
 					<div class="login100-form-avatar">
 						<img src="images/Avatar.jpg" alt="Avatar">
 					</div>

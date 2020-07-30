@@ -44,7 +44,7 @@ class class_Debtors
 
             // Insertar deudor
             $name = $last_name . " " . $name;
-            $query = "INSERT INTO DEUDORES (DEUDOR_ID, ID_USUARIO, NOMBRE, CORREO, CELULAR, CREADO) VALUES (NULL, '" . $_SESSION['USUARIO_ID'] . "', '$name', '$email', '$mobile_debtors', CURRENT_TIMESTAMP)";
+            $query = "INSERT INTO DEUDORES (ID_DEUDOR, ID_USUARIO, NOMBRE, CORREO, CELULAR, CREADO) VALUES (NULL, '" . $_SESSION['USUARIO_ID'] . "', '$name', '$email', '$mobile_debtors', CURRENT_TIMESTAMP)";
             if (mysqli_query($this->_con, $query)) {
                 mysqli_close($this->_con);
                 return true;

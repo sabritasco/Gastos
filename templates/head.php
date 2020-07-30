@@ -5,6 +5,7 @@ require_once 'class/ParametersDB.php';
 if (!isset($_SESSION['logged_in'])) {
   header('Location: index.php');
 }
+setlocale(LC_ALL, 'es_MX.UTF-8');
 require_once 'templates/title.php';
 ?>
 <!DOCTYPE html>

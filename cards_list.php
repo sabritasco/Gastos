@@ -28,7 +28,7 @@
 						<?php
 						require_once 'class/ParametersDB.php';
 						$db = new class_ConnectDB();
-						$query = " SELECT * FROM TARJETAS";
+						$query = " SELECT * FROM TARJETAS WHERE ID_USUARIO = '" . $_SESSION['ID_USUARIO'] . "'";
 						$result = mysqli_query($db->con, $query);
 						$data = mysqli_fetch_all($result);
 						for ($i = 0; $i < count($data); $i++) :
@@ -48,8 +48,18 @@
 										Tel institution: <?= $data[$i]['10'] ?>
 									</div>
 									<div class="card-footer">
+
 										<a href="#1" class="btn btn-icon" title="Add charge" role="button">
 											<i class="fas fa-plus"></i>
+										</a>
+
+
+										<a href="#1" class="btn btn-icon" title="Add debt" role="button">
+											<i class="fas fa-calendar-plus"></i>
+										</a>
+
+										<a href="#1" class="btn btn-icon" title="Delete" role="button">
+											<i class="fas fa-trash-alt"></i>
 										</a>
 									</div>
 								</div>

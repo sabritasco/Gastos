@@ -28,7 +28,7 @@
 						<?php
 						require_once 'class/ParametersDB.php';
 						$db = new class_ConnectDB();
-						$query = " SELECT * FROM DEUDORES";
+						$query = " SELECT * FROM DEUDORES WHERE ID_USUARIO = '".$_SESSION['ID_USUARIO']."'";
 						$result = mysqli_query($db->con, $query);
 						$data = mysqli_fetch_all($result);
 						for ($i = 0; $i < count($data); $i++) :

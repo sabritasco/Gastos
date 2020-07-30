@@ -35,7 +35,7 @@ class class_User
                 throw new Exception(LOGIN_FIELDS_MISSING);
             }
             $pass = md5($pass);
-            $query = "SELECT USUARIO_ID, NOMBRE, CORREO, FOTO, CREADO FROM USUARIOS WHERE USUARIO = '$user' and PASSWORD = '$pass' ";
+            $query = "SELECT ID_USUARIO, NOMBRE, CORREO, FOTO, CREADO FROM USUARIOS WHERE USUARIO = '$user' and PASSWORD = '$pass' ";
             $result = mysqli_query($this->_con, $query);
             $data = mysqli_fetch_assoc($result);
             $count = mysqli_num_rows($result);

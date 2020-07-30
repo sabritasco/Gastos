@@ -116,7 +116,7 @@ html {
   position: absolute;
   color: black;
   height: 100%;
-  right: .5em;
+  right: 0.5em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -157,4 +157,12 @@ html {
 }
 #dataTable tbody tr:nth-of-type(even) {
   background-color: white;
+}
+
+.desenfoque {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
 }

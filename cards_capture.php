@@ -41,7 +41,7 @@
 								<h3 class="mb-0">Card data</h3>
 							</div>
 							<div class="card-body">
-								<form id="form-validate" class="form validate-form" role="form" autocomplete="off" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+								<form id="form-validate" class="form validate-form" role="form" autocomplete="off" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
 
 
 

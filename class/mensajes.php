@@ -14,7 +14,7 @@ define('DEBTORS_INSERT_SUCCESS', 'Se ha registrado al deudor correctamente.');
 
 //Class Cards
 define('CARDS_INSERT_SUCCESS', 'Se ha registrado la tarjeta correctamente.');
-define('CARDS_FIELDS_MISSING', 'Debe ingresar los datos de la tarjeta.');
+define('CARDS_FIELDS_MISSING', 'Debe ingresar todos los datosa los datos de la tarjeta a registrar.');
 define('CARDS_INVALID_DIGITS', 'Debe ingresar los últimos 4 dígitos de su tarjeta.');
 define('CARDS_INVALID_PHONE', 'Debe ingresar un teléfono valido de la institución bancaria.');
 define('CARDS_INVALID_TYPE', 'Debe seleccionar el tip ode tarjeta de crédito.');
@@ -28,4 +28,3 @@ define('CARDS_INVALID_YEAR', 'Debe seleccionar el año de vencimiento');
 
 
 
-?>
