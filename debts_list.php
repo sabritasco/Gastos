@@ -18,7 +18,7 @@
 				<div class="container-fluid">
 
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Tarjetas</h1>
+						<h1 class="h3 mb-0 text-gray-800">Deudas</h1>
 					</div>
 
 					<!-- Row -->
@@ -28,7 +28,7 @@
 						<?php
 						require_once 'class/ParametersDB.php';
 						$db = new class_ConnectDB();
-						$query = " SELECT * FROM TARJETAS WHERE ID_USUARIO = '" . $_SESSION['ID_USUARIO'] . "'";
+						$query = " SELECT * FROM DEUDORES WHERE ID_USUARIO = '".$_SESSION['ID_USUARIO']."'";
 						$result = mysqli_query($db->con, $query);
 						$data = mysqli_fetch_all($result);
 						for ($i = 0; $i < count($data); $i++) :
@@ -38,28 +38,16 @@
 							<div class="col-lg-6">
 								<div class="card shadow mb-4">
 									<div class="card-header py-3">
-										<h6 class="m-0 font-weight-bold text-primary"><?= $data[$i]['3'] ?></h6>
+										<h6 class="m-0 font-weight-bold text-primary"><?= $data[$i]['2'] ?></h6>
 									</div>
 									<div class="card-body">
-										Tipo: <?= $data[$i]['4'] ?>
+										Tel: <?= $data[$i]['4'] ?>
 										</br>
-										Institución: <?= $data[$i]['9'] ?>
-										</br>
-										Tel. Institución: <?= $data[$i]['10'] ?>
+										Email: <?= $data[$i]['3'] ?>
 									</div>
 									<div class="card-footer">
-
-										<a href="#1" class="btn btn-icon" title="Add charge" role="button">
-											<i class="fas fa-plus"></i>
-										</a>
-
-
 										<a href="#1" class="btn btn-icon" title="Add debt" role="button">
-											<i class="fas fa-calendar-plus"></i>
-										</a>
-
-										<a href="#1" class="btn btn-icon" title="Delete" role="button">
-											<i class="fas fa-trash-alt"></i>
+											<i class="fas fa-plus"></i>
 										</a>
 									</div>
 								</div>

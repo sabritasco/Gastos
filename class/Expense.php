@@ -1,5 +1,5 @@
 <?php
-class class_Cards
+class class_Expense
 {
     public function __construct()
     {
@@ -8,7 +8,7 @@ class class_Cards
     }
 
     /**
-     * Este metodo para capturar tarjetas
+     * Este metodo para capturar gastos o cargos
      * @param array $data
      * @return retorna falso o verdadero
      */
@@ -19,86 +19,62 @@ class class_Cards
             // Trim a todos los datos entrantes:
             $trimmed_data = array_map('trim', $data);
 
-            if(!isset($trimmed_data['digits_cards']) || !isset($trimmed_data['identifier_cards']) || !isset($trimmed_data['type']) || !isset($trimmed_data['month']) || !isset($trimmed_data['institution']))
-            {
-                throw new Exception(CARDS_FIELDS_MISSING);
+
+
+            if (!isset($trimmed_data['debtor']) || !isset($trimmed_data['destination']) || !isset($trimmed_data['tag']) || !isset($trimmed_data['expense_date']) || !isset($trimmed_data['amount'])) {
+                throw new Exception(EXPENSE_FIELDS_MISSING);
             }
 
-            // Verificar ultimos 4 digitos de la tarjeta
-            if (filter_var($trimmed_data['digits_cards'], FILTER_VALIDATE_INT)) {
-                $digits_cards = mysqli_real_escape_string($this->_con, $trimmed_data['digits_cards']);
+
+
+            // Verificar id del deudor
+            if (filter_var($trimmed_data['debtor'], FILTER_VALIDATE_INT)) {
+                $id_debtor = mysqli_real_escape_string($this->_con, $trimmed_data['debtor']);
             } else {
-                throw new Exception(CARDS_INVALID_DIGITS);
+                throw new Exception(EXPENSE_INVALID_ID_DEBTOR);
             }
 
-            // Verificar identificador
-            $identifier_cards = mysqli_real_escape_string($this->_con,  $trimmed_data['identifier_cards']);
-            if ((!$identifier_cards)) {
-                throw new Exception(FIELDS_MISSING);
-            }
 
-            // Verificar credito o debito
-            if (in_array($trimmed_data['type'], array("Credito", "Debito"))) {
-                $type = mysqli_real_escape_string($this->_con, $trimmed_data['type']);
 
-                if ($type == "Credito") {
-
-                    // Verificar limite de credito
-                    if (filter_var($trimmed_data['limit'], FILTER_VALIDATE_FLOAT)) {
-                        $limit = mysqli_real_escape_string($this->_con, $trimmed_data['limit']);
-                    } else {
-                        throw new Exception(CARDS_INVALID_LIMIT);
-                    }
-
-                    // Verificar fecha de corte
-                    if (filter_var($trimmed_data['cutoff'], FILTER_VALIDATE_INT,  array('options' => array('min_range' => 1, 'max_range' => 31)))) {
-                        $cutoff = mysqli_real_escape_string($this->_con, $trimmed_data['cutoff']);
-                    } else {
-                        throw new Exception(CARDS_INVALID_CUTOFF);
-                    }
-
-                    $balance = NULL;
-                } else {
-
-                    // Verificar saldo
-                    if (filter_var($trimmed_data['balance'], FILTER_VALIDATE_FLOAT)) {
-                        $balance = mysqli_real_escape_string($this->_con, $trimmed_data['balance']);
-                    } else {
-                        throw new Exception(CARDS_INVALID_BALANCE);
-                    }
-
-                    $limit = NULL;
-                    $cutoff = NULL;
-                }
+            // Verificar id de la tarjeta destino
+            if (filter_var($trimmed_data['destination'], FILTER_VALIDATE_INT)) {
+                $id_card = mysqli_real_escape_string($this->_con, $trimmed_data['destination']);
+            } elseif ($trimmed_data['destination'] == "Efectivo") {
+                $id_card = 0;
             } else {
-                throw new Exception(CARDS_INVALID_TYPE);
+                throw new Exception(EXPENSE_INVALID_ID_CARD);
             }
 
 
-            // Verificar fecha de vencimiento
-            if (filter_var($trimmed_data['month'], FILTER_VALIDATE_INT,  array('options' => array('min_range' => 1, 'max_range' => 12)))) {
-                $month = mysqli_real_escape_string($this->_con, $trimmed_data['month']);
+
+            // Verificar tag del gasto
+            $tag = mysqli_real_escape_string($this->_con,  $trimmed_data['tag']);
+            if ((!$tag)) {
+                throw new Exception(EXPENSE_INVALID_TAG);
+            }
+
+
+
+            // Verificar tfecha de compra
+            if (count($fecha = explode("/", $trimmed_data['expense_date'])) == 3 and checkdate($fecha[1], $fecha[2], $fecha[0])) {
+                $date = mysqli_real_escape_string($this->_con, $trimmed_data['expense_date']);
             } else {
-                throw new Exception(CARDS_INVALID_MONTH);
+                throw new Exception(EXPENSE_INVALID_DATE);
             }
-            if (filter_var($trimmed_data['year'], FILTER_VALIDATE_INT,  array('options' => array('min_range' => date("Y")+1, 'max_range' => date("Y")+10)))) {
-                $year = mysqli_real_escape_string($this->_con, $trimmed_data['year']);
+
+
+
+            // Verificar monto de la compra
+            if (filter_var($trimmed_data['amount'], FILTER_VALIDATE_FLOAT)) {
+                $amount = mysqli_real_escape_string($this->_con, $trimmed_data['amount']);
             } else {
-                throw new Exception(CARDS_INVALID_YEAR);
-            }
-            $expiration = $month."/".$year;
-
-            
-
-            // Verificar y telefono de institucion
-            $institution = mysqli_real_escape_string($this->_con,  $trimmed_data['institution']);
-            $phone = mysqli_real_escape_string($this->_con,  $trimmed_data['phone']);
-            if ((!$institution) || (!$phone)) {
-                throw new Exception(FIELDS_MISSING);
+                throw new Exception(EXPENSE_INVALID_AMOUNT);
             }
 
-            // Insertar tarjeta
-            $query = "INSERT INTO TARJETAS (ID_TARJETA, ID_USUARIO, TERMINACION, IDENTIFICADOR, TIPO, LIMITE_CREDITO, FECHA_CORTE, SALDO, VENCIMIENTO, INSTITUCION, TEL_INSTITUCION) VALUES (NULL, '" . $_SESSION['ID_USUARIO'] . "', '$digits_cards', '$identifier_cards', '$type', NULLIF('$limit',''), NULLIF('$cutoff',''), NULLIF('$balance',''), '$expiration', '$institution', '$phone');";
+
+
+            // Insertar gasto
+            $query = "INSERT INTO GASTOS (ID_USUARIO, ID_DEUDOR, ID_TARJETA, TITULO_CARGO, FECHA_CARGO, VALOR_CARGO) VALUES ('" . $_SESSION['ID_USUARIO'] . "', '$id_debtor', '$id_card', '$tag', '$date', '$amount');";
             if (mysqli_query($this->_con, $query)) {
                 mysqli_close($this->_con);
                 return true;
@@ -107,10 +83,8 @@ class class_Cards
                 //$this->_con->error;
                 throw new Exception(ERROR_MYSQL);
             }
-
-            
         } else {
-            throw new Exception(CARDS_FIELDS_MISSING);
+            throw new Exception(EXPENSE_FIELDS_MISSING);
         }
     }
 }

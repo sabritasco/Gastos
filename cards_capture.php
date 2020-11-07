@@ -38,7 +38,7 @@
 						<!-- Card form -->
 						<div class="card card-outline-secondary border-left-primary border-bottom-primary m-b-30 p-2 col-lg-12">
 							<div class="card-header">
-								<h3 class="mb-0">Card data</h3>
+								<h3 class="mb-0">Información de la Tarjeta</h3>
 							</div>
 							<div class="card-body">
 								<form id="form-validate" class="form validate-form" role="form" autocomplete="off" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
@@ -48,9 +48,9 @@
 
 
 									<div class="form-group row caja">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-lg-0">Last 4 digits</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-lg-0">Ultimos 4 digitos</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Last 4 digits is required">
+											<div class="wrap-input validate-input form-group row " data-validate="Los ultimos 4 digitos son requeridos.">
 												<input id="digits_cards" class="form-control input" type="text" name="digits_cards">
 												<span class="focus-input"></span>
 											</div>
@@ -58,9 +58,9 @@
 									</div>
 
 									<div class="form-group row caja">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Identifier</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Identificador</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Identifier is required">
+											<div class="wrap-input validate-input form-group row " data-validate="El identificador de la tarjeta es requerido.">
 												<input id="identifier_cards" class="form-control input" type="text" name="identifier_cards">
 												<span class="focus-input"></span>
 											</div>
@@ -68,9 +68,9 @@
 									</div>
 
 									<div class="form-group row caja">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Type</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Tipo</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row" data-validate="Type is required">
+											<div class="wrap-input validate-input form-group row" data-validate="El tipo de tarjeta es requerido">
 												<select id="type" class="form-control input" name="type">
 													<option value="">Seleccione...</option>
 													<option value="Debito">Debito</option>
@@ -85,9 +85,9 @@
 									<!--- Inicia credito -->
 									<div id="credito">
 										<div class="form-group row caja">
-											<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Credit limit</label>
+											<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Limite de credito</label>
 											<div class="col-lg-9">
-												<div class="wrap-input validate-input form-group row " data-validate="Credit limit is required">
+												<div class="wrap-input validate-input form-group row " data-validate="El límite de credito es requerido">
 													<input id="limit" class="form-control input" type="text" name="limit">
 													<span class="focus-input"></span>
 												</div>
@@ -95,9 +95,9 @@
 										</div>
 
 										<div class="form-group row caja">
-											<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Cutoff date</label>
+											<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Fecha de corte</label>
 											<div class="col-lg-9">
-												<div class="wrap-input validate-input form-group row " data-validate="Cutoff date is required">
+												<div class="wrap-input validate-input form-group row " data-validate="La fecha de corte es requerida.">
 													<input id="cutoff" class="form-control input" type="text" name="cutoff">
 													<span class="focus-input">
 													</span>
@@ -112,7 +112,7 @@
 										<div class="form-group row caja">
 											<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Balance</label>
 											<div class="col-lg-9">
-												<div class="wrap-input validate-input form-group row " data-validate="Balance is required">
+												<div class="wrap-input validate-input form-group row " data-validate="El balance de la tarjeta es requerido.">
 													<input id="balance" class="form-control input" type="text" name="balance">
 													<span class="focus-input"></span>
 												</div>
@@ -129,15 +129,15 @@
 
 									<!-- Expiration -->
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Expiration date</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Fecha de expiración</label>
 										<div class="col-lg-9">
 											<div class="form-group row">
 
 
 
-												<label class="col-xl-1 col-form-label form-control-label border-left-secondary mb-2 lg-sm-0">Month</label>
+												<label class="col-xl-1 col-form-label form-control-label border-left-secondary mb-2 lg-sm-0">Mes</label>
 												<div class="col caja">
-													<div class="wrap-input validate-input form-group row" data-validate="Month is required">
+													<div class="wrap-input validate-input form-group row" data-validate="El mes de corte es requerido.">
 														<select id="month" class="form-control input" name="month">
 															<option value="">Seleccione...</option>
 															<option value="1">Enero</option>
@@ -158,7 +158,7 @@
 												</div>
 
 
-												<label class="col-xl-1 col-form-label form-control-label border-left-secondary mb-2 lg-sm-0">Year</label>
+												<label class="col-xl-1 col-form-label form-control-label border-left-secondary mb-2 lg-sm-0">Año</label>
 												<div class="col caja">
 													<div class="wrap-input validate-input form-group row" data-validate="Year is required">
 														<select id="year" class="form-control input" name="year">
@@ -185,9 +185,9 @@
 
 
 									<div class="form-group row caja">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Banking institution</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Institución bancaria</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Banking institution is required">
+											<div class="wrap-input validate-input form-group row " data-validate="El nombre de la institución bancaria es requerido.">
 												<input id="institution" class="form-control input" type="text" name="institution">
 												<span class="focus-input"></span>
 											</div>
@@ -195,9 +195,9 @@
 									</div>
 
 									<div class="form-group row caja">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Bank institution phone</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Telefono de la institución bancaria</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Banking institution phone is required">
+											<div class="wrap-input validate-input form-group row " data-validate="El telefono de la intitución bancaria es requerido.">
 												<input class="form-control input" type="text" name="phone">
 												<span class="focus-input"></span>
 											</div>
@@ -213,8 +213,8 @@
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label form-control-label"></label>
 										<div class="col-lg-9">
-											<input type="reset" class="btn btn-secondary" value="Cancel">
-											<input id="send" type="submit" class="btn btn-primary" value="Save">
+											<input type="reset" class="btn btn-secondary" value="Cancelar">
+											<input id="send" type="submit" class="btn btn-primary" value="Guardar">
 										</div>
 									</div>
 								</form>

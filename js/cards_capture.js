@@ -91,37 +91,39 @@
 
         messages: {
             digits_cards: {
-                required: "You must enter the last 4 digits",
-                remote: "You already have a card with that termination",
+                required: "Debe ingresar los ultimos 4 digitos de la tarjeta.",
+                remote: "Ya existe una tarjeta con esa terminación, verifique que no esta duplicandola.",
             },
             identifier_cards: {
-                required: "You must enter an identifier for the card",
-                remote: "you already have a card with that identifier",
+                required: "Debe ingresar un identificador para esta tarjeta.",
+                remote: "Ya existe una tarjeta con ese identificador, verifique que no esta duplicandola.",
             },
             type: {
-                required: "You must select the type of card",
+                required: "Debe seleccionar el tipo de tarjeta.",
             },
             limit: {
-                required: "You must enter the credit limit",
+                required: "Debe ingresar el limite de credito.",
             },
             cutoff: {
-                required: "You must enter the card cut day",
+                required: "Debe ingresar la fecha de corte de la tarjeta.",
+                digits: "Debe ingresar el día de corte de la tarjeta en numero entero.",
+                range: "Los meses no tienen mas de 31 días, no se haga menso.",
             },
             balance: {
-                required: "You must enter the balance",
+                required: "Debe ingrtesar el balande de la tarjeta al día de hoy.",
 
             },
             month: {
-                required: "You must select the month",
+                required: "Debe seleccionar el mes.",
             },
             year: {
-                required: "You must select the year",
+                required: "Debe seleccionar el año.",
             },
             institution: {
-                required: "You must enter the name of the bank",
+                required: "Debe ingresar el nombre de la institución bancaria.",
             },
             phone: {
-                required: "You must enter the bank contact number",
+                required: "Debe ingresar el numero de contacto de la institución bancaria.",
             },
 
         },

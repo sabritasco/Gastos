@@ -38,7 +38,7 @@
 						<!-- form user info -->
 						<div class="card card-outline-secondary border-left-primary border-bottom-primary m-b-30 p-2 col-lg-12">
 							<div class="card-header">
-								<h3 class="mb-0">Debtors data</h3>
+								<h3 class="mb-0">Información Deudores</h3>
 							</div>
 							<div class="card-body">
 								<form id="form-validate" class="form validate-form" role="form" autocomplete="off" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
@@ -48,9 +48,9 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-lg-0">First name</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 mb-lg-0">Nombre</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="First name is required">
+											<div class="wrap-input validate-input form-group row " data-validate="El nombre es requerido.">
 												<input class="form-control input" type="text" name="name">
 												<span class="focus-input"></span>
 
@@ -60,9 +60,9 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Last name</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Apellidos</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Last name is required">
+											<div class="wrap-input validate-input form-group row " data-validate="Los apellidos son requeridos.">
 												<input class="form-control input" type="text" name="last_name">
 												<span class="focus-input"></span>
 
@@ -73,9 +73,9 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Email</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Correo</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Email is required">
+											<div class="wrap-input validate-input form-group row " data-validate="El email es requerido">
 												<input id="email" class="form-control input" type="text" name="email">
 												<span class="focus-input"></span>
 
@@ -85,9 +85,9 @@
 
 
 									<div class="form-group row">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Mobile</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Celular</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="Mobile is required">
+											<div class="wrap-input validate-input form-group row " data-validate="El celular es requerido.">
 												<input id="mobile_debtors" class="form-control input" type="text" name="mobile_debtors">
 												<span class="focus-input"></span>
 
@@ -100,8 +100,8 @@
 									<div class="form-group row">
 										<label class="col-lg-3 col-form-label form-control-label"></label>
 										<div class="col-lg-9">
-											<input type="reset" class="btn btn-secondary" value="Cancel">
-											<input type="submit" class="btn btn-primary" value="Save">
+											<input type="reset" class="btn btn-secondary" value="Cancelar">
+											<input type="submit" class="btn btn-primary" value="Guardar">
 										</div>
 									</div>
 								</form>

@@ -75,19 +75,19 @@ if(isset($_GET['success']) && $_GET['success'] == 'logout'){
 					</div>
 
 					<span class="login100-form-title p-t-20 p-b-45">
-						Emmanuel González
+						Control de Gastos
 					</span>
 
-					<div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
-						<input class="input100" type="text" name="user" placeholder="Username" autocomplete="off">
+					<div class="wrap-input100 validate-input m-b-10" data-validate="Debe ingresar su usuario">
+						<input class="input100" type="text" name="user" placeholder="Usuario" autocomplete="off">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user"></i>
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+					<div class="wrap-input100 validate-input m-b-10" data-validate="Debe ingresar su contraseña">
+						<input class="input100" type="password" name="pass" placeholder="Constraseña">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock"></i>
@@ -96,7 +96,7 @@ if(isset($_GET['success']) && $_GET['success'] == 'logout'){
 
 					<div class="container-login100-form-btn p-t-10">
 						<button class="login100-form-btn">
-							Login
+							Ingresar
 						</button>
 					</div>
 

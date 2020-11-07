@@ -33,12 +33,15 @@
             tag: {
                 required: true,
             },
-            expense_date: {
+            debt_date: {
                 required: true,
             },
-            amount: {
+            amount_partial: {
                 required: true,
                 number: true,
+            },
+            number_payments: {
+                required: true,
             },
 
 
@@ -47,7 +50,7 @@
         messages: {
 
             debtor: {
-                required: "Debe seleccionar a quien se le cargara el gasto.",
+                required: "Debe seleccionar a quien se le cargara la deuda.",
             },
             destination: {
                 required: "Debe seleccionar de donde se realizo el pago.",
@@ -55,12 +58,15 @@
             tag: {
                 required: "Debe ingresar que fue lo comprado.",
             },
-            expense_date: {
+            debt_date: {
                 required: "Debe seleccionar la fecha de compra",
             },
-            amount: {
-                required: "Debe ingresar el monto en numero",
-                number: "Debe ingresar un monto en numero.",
+            amount_partial: {
+                required: "Debe ingresar el monto mensual de la deuda",
+                number: "Debe ingresar el monto en numero.",
+            },
+            number_payments: {
+                required: "Debe seleccionar el numero de pagos pendientes.",
             },
 
         },
@@ -70,14 +76,14 @@
 
     //Mostrar calendarios
     $.datetimepicker.setLocale('es');
-    $("#expense_date").datetimepicker({
+    $("#debt_date").datetimepicker({
         timepicker: false,
         format: 'Y/m/d',
         validateOnBlur: false,
     });
 
     $("#calendar_one").click(function () {
-        $("#expense_date").datetimepicker('show');
+        $("#debt_date").datetimepicker('show');
     });
 
 

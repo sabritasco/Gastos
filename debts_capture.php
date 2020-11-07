@@ -25,10 +25,10 @@
 
 					<?php if (!empty($_POST)) {
 						try {
-							$expense_obj = new class_Expense();
+							$expense_obj = new class_Debts();
 							$data = $expense_obj->insert($_POST);
 							if ($data) {
-								$success = EXPENSE_INSERT_SUCCESS;
+								$success = DEBTS_INSERT_SUCCESS;
 							}
 						} catch (Exception $e) {
 							$error = $e->getMessage();
@@ -53,7 +53,7 @@
 						<!-- Card form -->
 						<div class="card card-outline-secondary border-left-primary border-bottom-primary m-b-30 p-2 col-lg-12">
 							<div class="card-header">
-								<h3 class="mb-0">Información del Gasto</h3>
+								<h3 class="mb-0">Información de la Deuda</h3>
 							</div>
 							<div class="card-body">
 								<form id="form-validate" class="form validate-form" role="form" autocomplete="off" action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
@@ -69,7 +69,7 @@
 									<div class="form-group row caja">
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Deudor</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row" data-validate="El deudor es requerido.">
+											<div class="wrap-input validate-input form-group row" data-validate="El deudor es requerido">
 												<select class="form-control input" name="debtor">
 													<option value="">Seleccione...</option>
 													<?php for ($i = 0; $i < count($deudores); $i++) : ?>
@@ -95,7 +95,7 @@
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Forma
 											de pago</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row" data-validate="El destino de el gasto es reuqrido.">
+											<div class="wrap-input validate-input form-group row" data-validate="El destino de la deuda es reuqrido.">
 												<select class="form-control input" name="destination">
 													<option value="">Seleccione...</option>
 													<option value="Efectivo">Efectivo</option>
@@ -112,10 +112,10 @@
 
 
 
-									<!-- -->
+									<!-- Etiqueta de la deuda -->
 									<div class="form-group row caja">
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Etiqueta
-											del gasto</label>
+											de la deuda</label>
 										<div class="col-lg-9">
 											<div class="wrap-input validate-input form-group row " data-validate="La información de la compra es requerida.">
 												<input class="form-control input" type="text" name="tag">
@@ -123,17 +123,17 @@
 											</div>
 										</div>
 									</div>
-									<!-- End Monto del cargo-->
+									<!-- End Etiqueta de la deuda -->
 
 
 
-									<!-- Fecha de el cargo -->
+									<!-- Fecha de la deuda -->
 									<div class="form-group row caja">
 										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Fecha
-											del gasto</label>
+											de la deuda</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="La fecha del gasto es requerida.">
-												<input id="expense_date" class="form-control input" type="text" name="expense_date" placeholder="aaaa/mm/dd" readonly>
+											<div class="wrap-input validate-input form-group row " data-validate="La fecha de la deuda es requerida.">
+												<input id="debt_date" class="form-control input" type="text" name="debt_date" placeholder="aaaa/mm/dd" readonly>
 												<span class="icon">
 													<i id="calendar_one" class="fal fa-calendar-alt"></i>
 												</span>
@@ -141,22 +141,44 @@
 											</div>
 										</div>
 									</div>
-									<!-- End Fecha de el cargo -->
+									<!-- End echa de la deuda -->
 
 
 
-									<!-- Monto del cargo-->
+									<!-- Monto parcial de la deuda -->
 									<div class="form-group row caja">
-										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Monto
-											del gasto</label>
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Monto mensual de la deuda</label>
 										<div class="col-lg-9">
-											<div class="wrap-input validate-input form-group row " data-validate="El monto del gasto es requerido.">
-												<input class="form-control input" type="text" name="amount">
+											<div class="wrap-input validate-input form-group row " data-validate="El monto mensual de la deuda es requerido.">
+												<input class="form-control input" type="text" name="amount_partial">
 												<span class="focus-input"></span>
 											</div>
 										</div>
 									</div>
-									<!-- End Monto del cargo-->
+									<!-- End Monto parcial de la deuda -->
+
+
+									<!-- Mensualidades restantes -->
+									<div class="form-group row caja">
+										<label class="col-lg-3 col-form-label form-control-label border-left-info mb-2 lg-sm-0">Pagos pendientes</label>
+										<div class="col-lg-9">
+											<div class="wrap-input validate-input form-group row " data-validate="El numero de pagos pendientes es requerido.">
+												<select class="form-control input" name="number_payments">
+													<option value="">Seleccione...</option>
+													<option value="Recurrente">Recurrente</option>
+													<?php for ($i = 1; $i < 25; $i++) : ?>
+														<option value="<?= $i ?>"><?= $i ?>
+														</option>
+													<?php endfor ?>
+												</select>
+												<span class="focus-input"></span>
+											</div>
+										</div>
+									</div>
+									<!-- End Mensualidades restantes -->
+
+
+
 
 
 
@@ -188,7 +210,7 @@
 </body>
 <script src="js/main.js"></script>
 <!--===============================================================================================-->
-<script src="js/expense_capture.js"></script>
+<script src="js/debts_capture.js"></script>
 <!--===============================================================================================-->
 
 </html>

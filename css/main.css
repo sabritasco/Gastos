@@ -152,12 +152,14 @@ html {
   z-index: 1;
 }
 
+/*
 #dataTable tbody tr:nth-of-type(odd) {
   background-color: #f3f3f3;
 }
 #dataTable tbody tr:nth-of-type(even) {
   background-color: white;
 }
+*/
 
 .desenfoque {
   -webkit-filter: blur(2px);
@@ -166,3 +168,4 @@ html {
   -ms-filter: blur(2px);
   filter: blur(2px);
 }
+

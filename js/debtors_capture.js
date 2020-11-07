@@ -54,15 +54,15 @@
         },
 
         messages: {
-            name: "You must enter the name",
-            last_name: "You must enter the last name",
+            name: "Debe ingresar el nomre.",
+            last_name: "Debe ingresar los apellidos.",
             email: {
-                required: "You must enter the email",
-                remote: "There is already a debtor registered with that email",
+                required: "Debe ingresar el correo electronico.",
+                remote: "Ya existe un deudor con ese correo electronico, verifique que no lo este duplicando.",
             },
             mobile_debtors: {
-                required: "You must enter the phone number",
-                remote: "There is already a debtor registered with that mobile",
+                required: "Debe ingresar el numero celular.",
+                remote: "Ya existe un deudor con ese numero celular, verifique que no lo este duplicando.",
             },
         },
 

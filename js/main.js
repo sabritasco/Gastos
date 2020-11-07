@@ -1,12 +1,25 @@
 (function ($) {
   "use strict"; // Start of use strict
 
+
   // Toggle the side navigation
   $("#sidebarToggle, #sidebarToggleTop").on("click", function (e) {
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
+
+    //Reajustar tablas responsive cuando se abra la barra de navegacion lateral ... Revisar su funcionalidad con calma
+    if ($.fn.DataTable) {
+      $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+    }
+
     if ($(".sidebar").hasClass("toggled")) {
       $(".sidebar .collapse").collapse("hide");
+
+      //Reajustar tablas responsive cuando se abra la barra de navegacion lateral ... Revisar su funcionalidad con calma
+      if ($.fn.DataTable) {
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+      }
+
     }
   });
 
@@ -67,7 +80,7 @@
   });
 
   // Add active state 
-  var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+  var path = window.location.href.split("?")[0]; // because the 'href' property of the DOM element is the absolute path
   if ($(window).width() > 768) {
     $("#accordionSidebar a").each(function () {
       if (this.href === path) {
@@ -87,6 +100,7 @@
   }
 
   $('a[title]').tooltip();
+
 
 
 
