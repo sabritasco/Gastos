@@ -35,22 +35,15 @@
 					</div>
 					<!-- End Navegacion por meses -->
 
-					<?php
-					$db = new class_ConnectDB();
-					$query = " SELECT * FROM TARJETAS WHERE ID_USUARIO = '" . $_SESSION['ID_USUARIO'] . "'";
-					$result = mysqli_query($db->con, $query);
-					$data_cards = mysqli_fetch_all($result, MYSQLI_BOTH);
-
-
-					?>
 
 
 
 
 
 
-					<!-- Barra de tarjetas-->
-					<div class="mb-4">
+
+					<!-- Barra de tarjetas (TABS)-->
+					<div id="tabs" class="mb-4">
 						<nav class="navbar navbar-expand-lg navbar-light bg-gradient-success">
 							<span class="navbar-brand text-white">Cuentas</span>
 							<button class="navbar-toggler mb-2" type="button" data-toggle="collapse" data-target="#navbarCuentas" aria-controls="navbarCuentas" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,8 +60,23 @@
 										</a>
 									</li>
 
+
+
+
+
 									<!-- Tarjetas de Credito 1 -->
 									<?php
+
+
+									// CONSULTA GENERAL DE TARJETAS 
+									$db = new class_ConnectDB();
+									$query = " SELECT * FROM TARJETAS WHERE ID_USUARIO = '" . $_SESSION['ID_USUARIO'] . "'";
+									$result = mysqli_query($db->con, $query);
+									$data_cards = mysqli_fetch_all($result, MYSQLI_BOTH);
+									// END CONSULTA GENERAL DE TARJETAS 
+
+
+									// GENERAR LOS TABS DE TARJETAS DE CREDITO DE LA BARRA DE TARJETAS
 									if (in_array("Credito", array_column($data_cards, 'TIPO'))) :
 										for ($i = 0; $i < count($data_cards); $i++) :
 											if ($data_cards[$i]["TIPO"] == "Credito") :
@@ -85,12 +93,17 @@
 											endif;
 										endfor;
 									endif;
+									// GENERAR LOS TABS DE TARJETAS DE CREDITO DE LA BARRA DE TARJETAS
 									?>
 									<!-- End Tarjetas de Credito 1 -->
 
 
+
+
+
 									<!-- Tarjetas de Debito 1 -->
 									<?php
+									// GENERAR LOS TABS DE TARJETAS DE CREDITO DE LA BARRA DE TARJETAS
 									if (in_array("Debito", array_column($data_cards, 'TIPO'))) :
 										for ($i = 0; $i < count($data_cards); $i++) :
 											if ($data_cards[$i]["TIPO"] == "Debito") :
@@ -101,23 +114,20 @@
 														<sapan class="p-3"><?= $data_cards[$i]["IDENTIFICADOR"] ?></sapan>
 													</a>
 												</li>
-
-
 									<?php
 											endif;
 										endfor;
 									endif;
+									// GENERAR LOS TABS DE TARJETAS DE CREDITO DE LA BARRA DE TARJETAS
 									?>
 									<!-- End Tarjetas de Debito 1 -->
-
-
-
-
 								</ul>
 							</div>
 						</nav>
 					</div>
-					<!-- End Barra de tarjetas-->
+					<!-- End Barra de tarjetas (TABS)-->
+
+
 
 
 
@@ -141,55 +151,156 @@
 							if (in_array("Credito", array_column($data_cards, 'TIPO'))) :
 								for ($i = 0; $i < count($data_cards); $i++) :
 									if ($data_cards[$i]["TIPO"] == "Credito") :
+
+
 							?>
 
 
 										<!-- Panel Credito por tarjeta -->
+
 										<div class="tab-pane fade" id="nav-<?= str_replace(' ', '', $data_cards[$i]["IDENTIFICADOR"]) ?>" role="tabpanel" aria-labelledby="nav-<?= str_replace(' ', '', $data_cards[$i]["IDENTIFICADOR"]) ?>-tab">
-											<div class="card shadow mb-4">
-												<!-- Car Tabla -->
+
+
+
+
+											<!-- GASTOS o compras corrientes GASTOS-->
+
+											<!-- Consulta de GASTOS o compras corrientes -->
+											<?php
+											$query = " SELECT GASTOS.*, DEUDORES.NOMBRE
+														 FROM GASTOS 
+														 LEFT JOIN DEUDORES ON GASTOS.ID_DEUDOR = DEUDORES.ID_DEUDOR
+														 WHERE GASTOS.ID_USUARIO = '" . $_SESSION['ID_USUARIO'] . "' 
+														 AND GASTOS.ID_TARJETA = '" . $data_cards[$i]["ID_TARJETA"] . "'
+														 AND MONTH(GASTOS.FECHA_CARGO) = '$month_current'
+														 AND YEAR(GASTOS.FECHA_CARGO) = '$year_current'";
+											$result = mysqli_query($db->con, $query);
+											$data_cards_expense = mysqli_fetch_all($result, MYSQLI_BOTH);
+											?>
+											<!-- Consulta de GASTOS o compras corrientes -->
+
+
+											<!-- Car Tabla -->
+											<div class="card shadow border-left-warning border-bottom-warning mb-1">
 												<div class="card-header py-3">
-													<h6 class="m-0 font-weight-bold text-primary text-center text-lg-left">Gastos corrientes del mes de la tarjeta <?= $data_cards[$i]["IDENTIFICADOR"] ?></h6>
+													<h6 class="m-0 font-weight-bold text-warning text-center text-lg-left">Gastos corrientes del mes de la tarjeta <?= $data_cards[$i]["IDENTIFICADOR"] ?></h6>
 												</div>
 												<!-- Car Tabla -->
 												<div class="card-body">
 													<!-- Car Tabla Body -->
 													<div class="table-responsive">
-
-														<?php
-														$query = " SELECT * FROM GASTOS WHERE ID_USUARIO = '" . $_SESSION['ID_USUARIO'] . "' AND ID_TARJETA = '" . $data_cards[$i]["ID_TARJETA"] . "'";
-														$result = mysqli_query($db->con, $query);
-														$data_cards_info = mysqli_fetch_all($result, MYSQLI_BOTH);
-														?>
-
-
-														<table class="table table-hover responsive" style="width: 100%;" id="<?= str_replace(' ', '', $data_cards[$i]["IDENTIFICADOR"]) ?>">
+														<table class="table table-sm table-hover responsive" style="width: 100%;" id="<?= str_replace(' ', '', $data_cards[$i]["IDENTIFICADOR"]) ?>Gastos">
 															<thead>
 																<tr>
 																	<th>N°</th>
 																	<th>Fecha</th>
 																	<th>Descripción</th>
 																	<th>Monto</th>
+																	<th>Deudor</th>
 																</tr>
 															</thead>
-															<tfoot>
-																<tr>
-																	<th>N°</th>
-																	<th>Fecha</th>
-																	<th>Descripción</th>
-																	<th>Monto</th>
-																</tr>
-															</tfoot>
 															<tbody>
 																<?php
-																if (count($data_cards_info) >= 1) :
-																	for ($i = 0; $i < count($data_cards_info); $i++) :
+																if (count($data_cards_expense) >= 1) :
+																	for ($j = 0; $j < count($data_cards_expense); $j++) :
 																?>
 																		<tr>
-																			<td><?= $i + 1 ?></td>
-																			<td><?= $data_cards_info[$i]["FECHA_CARGO"] ?></td>
-																			<td><?= $data_cards_info[$i]["TITULO_CARGO"] ?></td>
-																			<td> <?= $data_cards_info[$i]["VALOR_CARGO"] ?> </td>
+																			<td><?= $j + 1; ?></td>
+																			<td><?= $data_cards_expense[$j]["FECHA_CARGO"] ?></td>
+																			<td><?= $data_cards_expense[$j]["TITULO_CARGO"] ?></td>
+																			<td> <?= $data_cards_expense[$j]["VALOR_CARGO"] ?> </td>
+																			<td> <?= $data_cards_expense[$j]["NOMBRE"] ?> </td>
+																		</tr>
+																<?php
+																	endfor;
+																endif;
+																?>
+															</tbody>
+														</table>
+													</div>
+													<!-- End Tabla Datatbles -->
+												</div>
+												<!-- End Card Tabla Body -->
+											</div>
+											<!-- End  Card Tabla -->
+											<!-- End GASTOS o compras corrientes GASTOS -->
+
+
+
+
+
+
+
+
+
+											<!--  DEUDAS --  DEUDAS  -->
+
+											<!-- Consulta de DEUDAS -->
+											<?php
+											$query = "SELECT DEUDAS.*, DEUDORES.NOMBRE
+													  FROM DEUDAS
+											          LEFT JOIN DEUDORES ON DEUDAS.ID_DEUDOR = DEUDORES.ID_DEUDOR
+											          WHERE DEUDAS.ID_USUARIO = '" . $_SESSION['ID_USUARIO'] . "' 
+													  AND DEUDAS.ID_TARJETA = '" . $data_cards[$i]["ID_TARJETA"] . "'
+													  AND DEUDAS.FECHA_ULTIMO_PAGO > '" . date("Y-m-t", strtotime($year_current . "-" . $month_current . "-" . getdate()["mday"])) . "' 
+													  AND DEUDAS.FEHCA_PRIMER_PAGO <= '" . date("Y-m-t", strtotime($year_current . "-" . $month_current . "-" . getdate()["mday"])) . "' 
+													  OR DEUDAS.FECHA_ULTIMO_PAGO IS NULL";
+
+											$result = mysqli_query($db->con, $query);
+											$data_cards_debts = mysqli_fetch_all($result, MYSQLI_BOTH);
+											?>
+											<!-- Consulta de DEUDAS -->
+
+
+
+											<!-- Car Tabla -->
+											<div class="card shadow border-left-primary border-bottom-primary">
+												<div class="card-header py-3">
+													<h6 class="m-0 font-weight-bold text-primary text-center text-lg-left">Deudas la tarjeta <?= $data_cards[$i]["IDENTIFICADOR"] ?></h6>
+												</div>
+												<!-- Car Tabla -->
+												<div class="card-body">
+													<!-- Car Tabla Body -->
+													<div class="table-responsive">
+														<table class="table table-sm table-hover responsive" style="width: 100%;" id="<?= str_replace(' ', '', $data_cards[$i]["IDENTIFICADOR"]) ?>Deudas">
+															<thead>
+																<tr>
+																	<th>N°</th>
+																	<th>Fecha original de compra</th>
+																	<th>Descripción</th>
+																	<th>Mensualidad</th>
+																	<th>Deudor</th>
+																</tr>
+															</thead>
+															<tbody>
+																<?php
+																if (count($data_cards_debts) >= 1) :
+																	for ($k = 0; $k < count($data_cards_debts); $k++) :
+																?>
+																		<tr>
+																			<?php
+																			$finpago = new DateTime($data_cards_debts[$k]["FECHA_ULTIMO_PAGO"]);
+																			$fechactual = new DateTime($year_current . "-" . $month_current . "-" . getdate()["mday"]);
+																			$intervalo = $fechactual->diff($finpago);
+																			$meses = $intervalo->format("%m");
+																			$years = $intervalo->format("%y") * 12;
+																			$mesesrestantes = $meses + $years;
+
+																			
+
+																			if ($data_cards_debts[$k]["NUMERO_PAGOS"] != 0) :
+																				$leyendarestante = " (" . ($data_cards_debts[$k]["NUMERO_PAGOS"] - $mesesrestantes + 1)   . " de " . $data_cards_debts[$k]["NUMERO_PAGOS"] . ")";
+																			else :
+																				$leyendarestante = " (Pago Recurrente)";
+																			endif;
+
+
+																			?>
+																			<td><?= $k + 1 ?></td>
+																			<td><?= $data_cards_debts[$k]["FECHA_DEUDA"] ?></td>
+																			<td><?= $data_cards_debts[$k]["TITULO_DEUDA"] . $leyendarestante ?></td>
+																			<td> <?= $data_cards_debts[$k]["MONTO_MENSUALIDAD"] ?> </td>
+																			<td> <?= $data_cards_debts[$k]["NOMBRE"] ?> </td>
 																		</tr>
 																<?php
 																	endfor;
@@ -198,12 +309,23 @@
 															</tbody>
 														</table>
 
+
 													</div>
 													<!-- End Tabla Datatbles -->
 												</div>
 												<!-- End Card Tabla Body -->
 											</div>
 											<!-- End  Card Tabla -->
+											<!-- End DEUDAS --  DEUDAS  -->
+
+
+
+
+
+
+
+
+
 										</div>
 										<!-- End  Panel Credito por tarjeta -->
 
@@ -223,6 +345,12 @@
 							?>
 
 							<!-- End Tarjetas de Credito 2 -->
+
+
+
+
+
+
 
 
 							<!-- Tarjetas de Debito 2 -->
@@ -330,7 +458,7 @@
 
 
 
-					
+
 
 
 
